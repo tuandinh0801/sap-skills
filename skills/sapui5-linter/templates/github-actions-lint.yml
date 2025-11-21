@@ -54,6 +54,7 @@ jobs:
       - name: Generate HTML Report
         if: always()
         run: npm run lint -- --format html --details 2> lint-diagnostics.log | tee lint-report.html
+        continue-on-error: true
 
       - name: Upload HTML Report
         if: always()
