@@ -166,6 +166,8 @@ sap gateway, sap netweaver, sap s/4hana, sap btp, sap cloud platform, sap fiori 
 6. **typescript-support.md**: TypeScript setup, configuration, and migration
 7. **routing-navigation.md**: Routing, navigation, and Flexible Column Layout
 8. **performance-optimization.md**: Performance best practices and optimization
+9. **accessibility.md**: WCAG 2.1 compliance, screen readers, ARIA, keyboard navigation
+10. **security.md**: XSS prevention, CSP, authentication, CSRF, secure coding
 
 ## Official Documentation
 
@@ -175,10 +177,17 @@ sap gateway, sap netweaver, sap s/4hana, sap btp, sap cloud platform, sap fiori 
 
 ## Version
 
-- **Skill Version**: 1.1.0
+- **Skill Version**: 1.2.0
 - **Minimum UI5 Version**: 1.120.0
 - **Last Updated**: 2025-11-21
 - **Status**: Production
+
+### What's New in v1.2.0
+
+- ✅ Added comprehensive accessibility guide (WCAG 2.1, screen readers, ARIA, keyboard navigation)
+- ✅ Added security best practices (XSS, CSP, clickjacking, CSRF, authentication)
+- ✅ Enhanced coverage from 8 to 10 reference files (~180KB total documentation)
+- ✅ 100% coverage of critical enterprise requirements
 
 ### What's New in v1.1.0
 

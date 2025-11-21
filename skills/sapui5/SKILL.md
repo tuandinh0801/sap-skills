@@ -4,12 +4,12 @@ description: |
   This skill should be used when developing SAP UI5 applications, including creating freestyle apps, Fiori Elements apps, custom controls, testing, data binding, OData integration, routing, and troubleshooting. Use when building enterprise web applications with SAP UI5 framework, implementing MVC patterns, configuring manifest.json, creating XML views, writing controllers, setting up data models (JSON, OData v2/v4), implementing responsive UI with sap.m controls, building List Report or Object Page applications with Fiori Elements, writing unit tests with QUnit, integration tests with OPA5, setting up mock servers, handling security (XSS, CSP), optimizing performance, implementing accessibility features, or debugging UI5 applications.
 license: MIT
 metadata:
-  version: 1.1.0
+  version: 1.2.0
   last_updated: 2025-11-21
   framework_version: "1.120.0+"
   documentation_source: https://github.com/SAP-docs/sapui5
   documentation_files_analyzed: 1416
-  reference_files: 8
+  reference_files: 10
   status: production
 ---
 
@@ -716,7 +716,7 @@ Built-in quality checker:
 
 ## Bundled Reference Files
 
-This skill includes comprehensive reference documentation (8 files):
+This skill includes comprehensive reference documentation (10 files):
 
 1. **references/glossary.md**: Complete SAPUI5 terminology and concepts (100+ terms)
 2. **references/core-architecture.md**: Framework architecture, components, MVC, bootstrapping, modules
@@ -726,8 +726,10 @@ This skill includes comprehensive reference documentation (8 files):
 6. **references/typescript-support.md**: TypeScript setup, configuration, types, migration, best practices
 7. **references/routing-navigation.md**: Routing, navigation, hash-based URLs, Flexible Column Layout, patterns
 8. **references/performance-optimization.md**: Performance best practices, async loading, optimization techniques
+9. **references/accessibility.md**: WCAG 2.1 compliance, screen readers, ARIA, keyboard navigation, high contrast
+10. **references/security.md**: XSS prevention, CSP, clickjacking, authentication, CSRF, secure coding practices
 
-**Access these files** for detailed information on specific topics while keeping the main skill concise. Total reference documentation: ~150KB covering all major SAPUI5 topics.
+**Access these files** for detailed information on specific topics while keeping the main skill concise. Total reference documentation: ~180KB covering all major SAPUI5 topics including enterprise requirements (accessibility, security).
 
 ---
 
