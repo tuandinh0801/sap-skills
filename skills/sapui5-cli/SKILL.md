@@ -209,20 +209,18 @@ This main skill file provides essential workflows and quick reference. For detai
 
 ### Core References
 - **`references/cli-commands.md`**: Complete CLI command reference with all options and examples
-- **`references/configuration.md`**: Comprehensive ui5.yaml configuration guide
-- **`references/project-types.md`**: Detailed project type specifications and structures
-- **`references/framework-setup.md`**: OpenUI5 vs SAPUI5 setup and configuration
+- **`references/configuration.md`**: Comprehensive ui5.yaml configuration guide (includes workspace config)
+- **`references/project-structures.md`**: Detailed project types with directory structures and build output styles
 
 ### Advanced Topics
-- **`references/extensibility.md`**: Custom tasks, middleware, and project shims
-- **`references/workspace.md`**: Monorepo and workspace configuration
-- **`references/build-process.md`**: Build tasks, optimization, and bundling
-- **`references/server-features.md`**: Development server features and SSL configuration
+- **`references/extensibility.md`**: Custom tasks, middleware, and project shims with complete API documentation
+- **`references/build-process.md`**: Complete build process including tasks, minification, source maps, and bundling
+- **`references/server-features.md`**: Complete server documentation with middleware stack, HTTP/2, SSL, and CSP
+- **`references/code-analysis.md`**: Dependency analyzers, JSDoc generation, and code analysis features
 
 ### Migration & Troubleshooting
-- **`references/migration-guides.md`**: Version migration guides (v1→v2→v3→v4)
-- **`references/troubleshooting.md`**: Common issues, errors, and solutions
-- **`references/es-support.md`**: ECMAScript version support and limitations
+- **`references/migration-guides.md`**: Complete version migration guides (v1→v2→v3→v4)
+- **`references/troubleshooting.md`**: Common issues, errors, and solutions with exact error messages
 
 ## Common Workflows
 
