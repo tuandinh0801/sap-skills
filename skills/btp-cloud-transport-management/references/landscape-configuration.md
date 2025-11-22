@@ -258,17 +258,96 @@ If no export integration in source:
 
 ## Landscape Visualization
 
-### Features
-
-- Visual representation of landscape
-- Drag-and-drop node placement
-- Route visualization
-- Quick access to node properties
-- Direct navigation to import queues
-
 ### Access
 
 Home Screen > Landscape Visualization
+
+**Prerequisites**:
+- Transport destinations configured
+- Administrator or LandscapeOperator role
+
+### Node Status Indicators
+
+| Indicator | Meaning |
+|-----------|---------|
+| Red + error icon | Overall status is Error or Fatal |
+| Orange + warning icon | Import ended with warnings |
+| Green + success icon | All imports successful |
+
+**Additional Icons**:
+- Import Scheduler icon: Scheduled imports active
+- Automatic Import icon: Auto-import enabled
+- Dashed line: Virtual transport node
+
+### Icon Bar Operations
+
+| Function | Description |
+|----------|-------------|
+| Plus icon | Create new transport node |
+| Route icon | Create transport route |
+| Refresh | Update graph, show changes by other users |
+| Export | Save landscape config to `.zip` file |
+| Import | Restore landscape from exported `.zip` |
+| Search | Find nodes/routes by character string |
+| Legend | Show color coding |
+
+### Export/Import Landscape Configuration
+
+**Export**: Saves complete landscape to `.zip` file
+
+**Import Prerequisites**:
+- File unchanged and under 10 MB
+- TMS version must match export version
+- No duplicate nodes/routes allowed
+- Cannot import partial landscapes
+- Destinations require separate manual maintenance
+
+### Context Menus
+
+**Node Options**:
+- Display node details/properties
+- Access node's import queue
+- Create routes from node
+- Delete node
+
+**Route Options**:
+- View properties (description, source, target)
+- Delete route
+
+---
+
+## Landscape Action Logs
+
+Track all landscape configuration changes.
+
+### Access
+
+Home Screen > Landscape Action Logs
+
+### Information Columns
+
+| Column | Description |
+|--------|-------------|
+| Entity Type | Node, Route, Job, Archive, Wizard |
+| Action Type | Create, Edit, Delete |
+| Affected Object | Clickable link (except Wizard/Delete) |
+| Changed By | User email/name |
+
+### Filtering
+
+Filter by:
+- Entity Type
+- Action Type
+- Changed By
+- Changed On (date picker)
+
+### Detail View
+
+Click row to see:
+- **Old value**: Previous state
+- **New value**: Current state
+- Create/Delete show "None" for old/new respectively
+- Import schedules use cron expression format
 
 ---
 

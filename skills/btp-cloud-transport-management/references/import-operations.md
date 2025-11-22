@@ -274,6 +274,196 @@ Allow efficient management of multiple files in a single request.
 - Remove and rearrange before testing
 - Request invisible in import queues until Test mode
 
+### Test Modifiable Requests
+
+**Prerequisites**:
+- Access to modifiable transport request detail view
+- ImportOperator role for all target nodes
+
+**Test Scope** (via Tracking tab):
+- If "Upload in Source Node" selected: source + first-level follow-on nodes
+- If not selected: only first-level follow-on nodes
+
+**Modify Test Scope**:
+- Add nodes via context menu (in-between nodes auto-included)
+- Cannot select final production node
+- Remove nodes via delete in context menu
+
+**Procedure**:
+1. Choose **Test** to open dialog
+2. Optionally select "Import Automatically" checkbox
+3. Execute **Test** and refresh
+
+**Results**:
+- Request enters queues in Initial status, Test mode
+- Forward mode governs subsequent routing
+- Failed imports show "Imports Failed" link
+- Request remains modifiable during testing
+
+### Release Modifiable Requests
+
+**Prerequisites**:
+- TransportOperator role minimum
+
+**Procedure**:
+1. Select **Release**
+2. Confirm dialog
+
+**Results**:
+- Status transitions to **Released**
+- Request becomes immutable
+- First-level nodes: Initial status, Final mode
+- Previously tested nodes: Transient status, Test mode (for audit)
+
+**Important**: Objects imported during test remain in tenant - not automatically removed.
+
+### Delete Transport Requests
+
+Mass delete from all import queues.
+
+**Prerequisites**: TransportOperator role for all tenant nodes
+
+**Procedure**:
+1. Select requests in Transport Requests overview
+2. Confirm deletion dialog
+
+**Results**:
+- Deleted from all import queues in tenant
+- Files immediately removed from storage
+- **Irreversible** - cannot restore deleted requests
+
+---
+
+## MTA Extension Descriptors
+
+Upload `.mtaext` files to customize MTA deployments for specific transport nodes.
+
+**Prerequisites**:
+- TransportOperator role
+- Cloud Foundry transport node with Content Type "Multi-Target Application"
+
+### File Specifications
+
+- **Extension**: `.mtaext`
+- **Purpose**: Complement deployment descriptors, customize MTA deployment per node
+
+### Matching Conditions
+
+MTA extension descriptors match when:
+1. MTA ID matches `extends:` parameter in descriptor
+2. Version binding matches imported MTA version
+
+### Version Binding
+
+| Binding | Behavior |
+|---------|----------|
+| `*` (asterisk) | Applies to all MTA versions (default) |
+| Specific (e.g., `1.4.2`) | Applies only to that version |
+
+**Note**: Cannot use wildcards (e.g., `1.4.*`). Specific bindings take precedence over universal.
+
+### Key Constraints
+
+- Descriptors are **NOT forwarded** to target nodes
+- Must upload separately in each import queue
+- Can upload before or after MTA addition to queue
+
+### Operations
+
+- Add via **Browse** or direct input
+- View content via magnifying glass icon
+- Download existing descriptors
+- Remove from queue
+- Check availability via paperclip icon
+
+### Audit Trail
+
+Upload/deletion actions logged in transport action logs.
+
+---
+
+## Search and Filter Options
+
+### Search Methods
+
+- **Description Search**: Enter any character string
+- **Request ID Search**: Enter complete ID
+
+### Filter Criteria
+
+**Status Filter**:
+- Default: Initial, Repeatable, Fatal, Running
+- Succeeded/Error entries auto-delete after retention period on next import
+
+**Date Range Filter**:
+- Default: Last 7 days
+- Alternative presets available
+- Timestamp = time of last status change
+
+**Custom Date Filter**:
+- Use calendar picker
+- Click first and last date
+- Grays out preset option when active
+- Delete dates to restore preset
+
+**Reset**: Choose **Restore** to reset all filters to defaults
+
+---
+
+## Remove Transport Requests
+
+Remove specific requests from a single import queue.
+
+**Prerequisites**:
+- Administrator or TransportOperator role
+- Access to the specific import queue
+
+### Procedure
+
+1. Select transport requests
+2. Execute **Remove**
+
+### Results
+
+- Status changes to **Deleted**
+- Removed from this import queue only
+- When removed from ALL queues: automatic cleanup deletes physical file
+
+**Note**: For mass deletion across all queues, use **Delete** from Transport Requests overview.
+
+---
+
+## Disable Import
+
+Temporarily prevent imports in a transport node.
+
+**Prerequisites**:
+- Administrator or TransportOperator role
+- Access to the import queue
+
+### Procedure
+
+1. Select **Disable Import**
+2. Optionally provide reason
+3. Confirm
+
+### Effects When Disabled
+
+**Import Execution**:
+- No imports executed (including scheduled)
+- Other operations continue (file additions work)
+
+**Forwarding**:
+- Manual forwarding allowed
+- Automatic forwarding from preceding nodes continues
+
+**Visual Indicators**:
+- Header displays **Import Disabled** message
+- Hover shows disable reason
+- Action logged in Landscape Action Logs
+
+**Re-enable**: Select **Enable Import**
+
 ---
 
 ## Storage Capacity

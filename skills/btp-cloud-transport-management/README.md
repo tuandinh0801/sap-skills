@@ -136,9 +136,10 @@ btp-cloud-transport-management/
 ├── EXTRACTION_PROGRESS.md        # Documentation coverage tracking
 └── references/
     ├── initial-setup.md          # Setup procedures
-    ├── destinations.md           # Destination configurations
-    ├── landscape-configuration.md # Nodes, routes, wizard
-    ├── import-operations.md      # Import queue operations
+    ├── destinations.md           # 8 destination type configurations
+    ├── landscape-configuration.md # Nodes, routes, visualization, wizard
+    ├── import-operations.md      # Import queue, MTA descriptors, modifiable requests
+    ├── administration.md         # Service plans, backup, storage, data export
     ├── troubleshooting.md        # Error resolution
     ├── integrations.md           # CI/CD, ALM, APIs
     └── security-roles.md         # Roles and permissions

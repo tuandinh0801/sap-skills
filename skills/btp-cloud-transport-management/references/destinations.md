@@ -183,16 +183,73 @@ https://<service-instance>.abap.<region>.hana.ondemand.com/sap/opu/odata4/sap/a4
 
 ### 6. XSC Delivery Unit Destination
 
+**Use when**: Transporting SAP HANA XS classic delivery units
+
+| Field | Value | Notes |
+|-------|-------|-------|
+| Name | User-defined | |
+| Type | HTTP | |
+| Proxy Type | Internet | |
+| Authentication | BasicAuthentication | |
+| User | Platform user | Deployment operations user |
+| Password | User password | |
+
 **URL Pattern**:
 ```
 https://<host>/sap/hana/xs/lm/slp/slp.xsjs
 ```
 
+**Example**:
+```
+https://demoabcd12345.hana.ondemand.com/sap/hana/xs/lm/slp/slp.xsjs
+```
+
+**Host Discovery**: Find host in SAP HANA Cockpit or Web-based Development Workbench
+
 ---
 
-### 7. Neo Environment MTA Deployment (Deprecated)
+### 7. Application Content Destination
 
-**URL**: SAP Solution Lifecycle Management service endpoint
+**Use when**: Transporting application-specific content formats
+
+| Field | Value | Notes |
+|-------|-------|-------|
+| Name | User-defined | |
+| Type | HTTP | |
+| URL | Application-specified | Check application documentation |
+| Authentication | OAuth2ClientCredentials | Typical; varies by application |
+| Client ID | From target service instance | |
+| Client Secret | From target service instance | |
+| Token Service URL | Example: `https://ts.authentication.sap.hana.ondemand.com` | |
+
+**Note**: URL and authentication vary by application. Consult specific application documentation.
+
+---
+
+### 8. Neo Environment MTA Deployment (Deprecated)
+
+**Use when**: Transporting MTAs to SAP BTP Neo environment
+
+| Field | Value | Notes |
+|-------|-------|-------|
+| Name | User-defined | |
+| Type | HTTP | |
+| Proxy Type | Internet | |
+| Authentication | BasicAuthentication | |
+| User | Neo platform user | Must have Operating Solutions roles |
+| Password | User password | |
+
+**URL Pattern**:
+```
+https://slservice.<landscape-host>/slservice/slp/basic/<Neo-subaccount-technical-name>/slp
+```
+
+**Example**:
+```
+https://slservice.eu1.hana.ondemand.com/slservice/slp/basic/a123c4567b/slp
+```
+
+**User Requirement**: Must be valid Neo environment user with roles per "Operating Solutions" documentation.
 
 ---
 

@@ -306,11 +306,12 @@ Configure `ALERT_NOTIFICATION_SERVICE` destination for:
 For detailed configuration procedures, see the reference files:
 
 - `references/initial-setup.md` - Complete setup procedures
-- `references/landscape-configuration.md` - Nodes, routes, and wizard details
-- `references/destinations.md` - All destination configurations
-- `references/import-operations.md` - Import queue operations
+- `references/landscape-configuration.md` - Nodes, routes, visualization, and wizard
+- `references/destinations.md` - All 8 destination types with configurations
+- `references/import-operations.md` - Import queue, MTA descriptors, modifiable requests
+- `references/administration.md` - Service plans, backup, storage, data export
 - `references/troubleshooting.md` - Error resolution guide
-- `references/integrations.md` - Integration scenarios
+- `references/integrations.md` - Integration scenarios and API operations
 - `references/security-roles.md` - Role and permission details
 
 ## Documentation Links

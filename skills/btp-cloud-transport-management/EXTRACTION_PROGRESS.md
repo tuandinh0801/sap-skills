@@ -222,7 +222,42 @@
 ## Extraction Summary
 
 - **Total Files in Documentation**: ~67 files
-- **Files Extracted**: 45 files (67%)
-- **Files Skipped**: 22 files (deprecated, UI-only, or redundant)
-- **Coverage**: Comprehensive for all core functionality
+- **Files Extracted**: 58 files (87%)
+- **Files Skipped**: 9 files (deprecated, accessibility, release notes)
+- **Coverage**: Comprehensive for all functionality
 - **Last Updated**: 2025-11-22
+
+## Enhanced Coverage (Second Pass)
+
+Additional content extracted and integrated:
+
+### Newly Covered Topics
+
+| Topic | Reference File | Content Added |
+|-------|---------------|---------------|
+| Landscape Visualization | landscape-configuration.md | Node status indicators, export/import, context menus |
+| Landscape Action Logs | landscape-configuration.md | Entity types, filtering, detail views |
+| MTA Extension Descriptors | import-operations.md | `.mtaext` files, version binding, matching |
+| Search/Filter Options | import-operations.md | Status filters, date ranges, reset |
+| Remove Transport Requests | import-operations.md | Single queue removal, cleanup |
+| Disable Import | import-operations.md | Effects, forwarding behavior |
+| Test Modifiable Requests | import-operations.md | Test scope, tracking tab, auto-import |
+| Release Modifiable Requests | import-operations.md | Status transitions, Transient status |
+| Delete Transport Requests | import-operations.md | Mass deletion, irreversibility |
+| XSC DU Destinations | destinations.md | Complete configuration |
+| Application Content Destinations | destinations.md | OAuth2ClientCredentials config |
+| Neo MTA Destinations | destinations.md | URL pattern, user requirements |
+| Service Plan Updates | administration.md | Upgrade paths, procedure |
+| Customer Data Export | administration.md | Export functions, decommissioning |
+| Home Screen Features | administration.md | Import overview, top nodes, storage |
+
+### Files Remaining Unextracted
+
+| File | Reason |
+|------|--------|
+| what-s-new-for-sap-cloud-transport-management-85b6ac3.md | Release notes - dynamic content |
+| accessibility-features-in-sap-cloud-transport-management-88e3f99.md | Accessibility - not core functionality |
+| deprecated-creating-destinations-for-deployment-of-references-of-sap-btp-abap-environment-14c6bcd.md | Deprecated |
+| data-protection-and-privacy-a2749d5.md | Legal/compliance - not technical |
+| options-to-display-information-about-transport-requests-a90d808.md | UI navigation - covered elsewhere |
+| displaying-details-of-transport-requests-0415f2f.md | UI navigation - covered elsewhere |
