@@ -169,6 +169,21 @@
 - [x] getResultSet() vs getMembers() performance
 - [x] Empty onInitialization best practice
 
+### Advanced APIs Extracted (Enhancement v1.1.0)
+- [x] Calendar Integration API (tasks, processes, reminders)
+- [x] CalendarCompositeTask (approve, reject, submit, decline)
+- [x] Calendar event creation and management
+- [x] Bookmarks API (save, apply, delete, getAll)
+- [x] Linked Analysis (setFilters, removeFilters)
+- [x] Timer API (start, stop, onTimeout)
+- [x] Container Widgets (Panel, TabStrip, PageBook, Flow Layout)
+- [x] Layout API (getLeft, setLeft, setWidth, setHeight)
+- [x] Navigation API (openApplication, openStory, createApplicationUrl)
+- [x] R Visualization integration
+- [x] Custom Widget development framework
+- [x] Script Objects (reusable function containers)
+- [x] Technical Objects (BookmarkSet, Timer, Calendar)
+
 ---
 
 ## Key Documentation Links for Updates

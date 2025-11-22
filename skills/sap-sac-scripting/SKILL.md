@@ -1,15 +1,16 @@
 ---
 name: sap-sac-scripting
 description: |
-  This skill provides comprehensive guidance for scripting in SAP Analytics Cloud (SAC), including Analytics Designer and Optimized Story Experience. Use when writing scripts for analytic applications, planning applications, or enhanced stories in SAC. Covers DataSource API, Chart/Table manipulation, Planning operations (version management, data locking), global/local variables, event handlers (onInitialization, onSelect, onResultChanged), input controls, popups/dialogs, debugging techniques (console.log, debugger statement), and performance optimization. Includes templates for common patterns like dimension filtering, measure swapping, version publishing, and chart/table switching. Supports SAC version 2025.14+.
+  This skill provides comprehensive guidance for scripting in SAP Analytics Cloud (SAC), including Analytics Designer and Optimized Story Experience. Use when writing scripts for analytic applications, planning applications, or enhanced stories in SAC. Covers DataSource API (36+ methods), Chart/Table/Input Controls manipulation, Planning operations (version management, data locking, data actions), Calendar integration (tasks, processes, workflows), Bookmarks (save/apply state), Linked Analysis, Timer API, Container widgets (Panel, TabStrip, PageBook), Layout API (responsive design), R Visualizations, Custom Widgets development, Navigation, global/local variables, event handlers (onInitialization, onSelect, onResultChanged), popups/dialogs, debugging techniques (console.log, debugger statement), and performance optimization. Includes 39 ready-to-use code templates. Supports SAC version 2025.14+.
 license: MIT
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   last_updated: 2025-11-22
   sac_version: "2025.14+"
   api_reference_version: "2025.14"
   documentation_source: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD
-  reference_files: 4
+  reference_files: 6
+  template_patterns: 39
   status: production
 ---
 
@@ -53,6 +54,26 @@ Use this skill when working on tasks involving:
 - Managing widget visibility
 - Implementing dynamic navigation
 - Building responsive applications
+- Using container widgets (Panel, TabStrip, PageBook, Flow Layout)
+- Implementing Layout API for dynamic sizing/positioning
+
+**Calendar & Workflow Integration**:
+- Creating and managing calendar tasks and processes
+- Implementing approval workflows (submit, approve, reject)
+- Adding reminders and notifications
+- Integrating with planning calendar events
+
+**Bookmarks & State Management**:
+- Saving and restoring application state
+- Creating global and personal bookmarks
+- URL parameter integration
+- Linked Analysis for cross-widget filtering
+
+**Advanced Features**:
+- Timer-based operations and animations
+- R Visualizations for specialized charts
+- Custom Widget development
+- Cross-application navigation
 
 **Debugging & Optimization**:
 - Debugging scripts with console.log and debugger statement
@@ -554,16 +575,21 @@ Table_1.export(ExportType.CSV);
 
 ## Bundled Reference Files
 
-This skill includes detailed reference documentation:
+This skill includes detailed reference documentation (6 files):
 
+**Core APIs**:
 1. **references/api-datasource.md**: Complete DataSource API (36+ methods)
 2. **references/api-widgets.md**: Chart, Table, Input Controls, GeoMap APIs
 3. **references/api-planning.md**: Planning API, version management, data locking
 4. **references/api-application.md**: Application object, utilities, events
 
-**Templates**:
-1. **templates/common-patterns.js**: Ready-to-use code patterns
-2. **templates/planning-operations.js**: Planning-specific patterns
+**Advanced APIs**:
+5. **references/api-calendar-bookmarks.md**: Calendar integration, Bookmarks, Linked Analysis, Timer API
+6. **references/api-advanced-widgets.md**: Container widgets, Layout API, R Visualization, Custom Widgets, Navigation
+
+**Templates** (39 ready-to-use patterns):
+1. **templates/common-patterns.js**: Filtering, selection, visibility, debugging
+2. **templates/planning-operations.js**: Version management, workflows, data actions
 
 ---
 

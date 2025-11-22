@@ -70,13 +70,18 @@ This skill triggers when you're working with:
 - `README.md` - This file (keywords and overview)
 - `PROGRESS_TRACKING.md` - Documentation source tracking
 
-### Reference Files
+### Reference Files (6 files)
+**Core APIs**:
 - `references/api-datasource.md` - Complete DataSource API (36+ methods)
 - `references/api-widgets.md` - Chart, Table, Input Controls APIs
 - `references/api-planning.md` - Planning API, version management
 - `references/api-application.md` - Application object, utilities, events
 
-### Templates
+**Advanced APIs**:
+- `references/api-calendar-bookmarks.md` - Calendar integration, Bookmarks, Linked Analysis, Timer
+- `references/api-advanced-widgets.md` - Containers, Layout API, R Viz, Custom Widgets, Navigation
+
+### Templates (39 patterns)
 - `templates/common-patterns.js` - 23 ready-to-use scripting patterns
 - `templates/planning-operations.js` - 16 planning-specific patterns
 
@@ -151,12 +156,66 @@ This skill triggers when you're working with:
 - Export PDF
 - Export Excel
 
+### Calendar Keywords
+- Calendar integration
+- CalendarCompositeTask
+- getCalendarEventById
+- getCurrentEvent
+- createProcess
+- createTask
+- approve
+- reject
+- submit
+- addReminder
+- planning workflow
+- calendar task
+
+### Bookmark Keywords
+- Bookmarks
+- BookmarkSet
+- saveBookmark
+- apply bookmark
+- getAppliedBookmark
+- deleteBookmark
+- global bookmark
+- personal bookmark
+- URL bookmarkId
+
+### Container/Layout Keywords
+- Panel widget
+- TabStrip
+- PageBook
+- Flow Layout Panel
+- container widgets
+- Layout API
+- setWidth
+- setHeight
+- setLeft
+- setRight
+- responsive layout
+- getSelectedTab
+- setSelectedPage
+
+### Advanced Keywords
+- Timer
+- Timer API
+- onTimeout
+- Linked Analysis
+- setFilters
+- R Visualization
+- Custom Widget
+- Script Object
+- Technical Object
+
 ### Event Keywords
 - onInitialization
 - onSelect
 - onResultChanged
 - onClick
 - onResize
+- onOrientationChange
+- onOpen
+- onClose
 - event handler
 - script object
 - global variable
