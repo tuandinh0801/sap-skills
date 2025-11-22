@@ -378,14 +378,20 @@ const embeddings = response.getEmbeddings();
 ### Java
 
 ```java
-// v1.4.0+ interface
+// v1.4.0+ interface (recommended)
 var client = OpenAiClient.forModel(OpenAiModel.TEXT_EMBEDDING_3_SMALL);
 
-var request = OpenAiEmbeddingRequest.create()
-    .addInput("SAP is an enterprise software company");
-
+var request = new OpenAiEmbeddingRequest(List.of("SAP is an enterprise software company"));
 var response = client.embedding(request);
-float[] embedding = response.getEmbeddings().get(0);
+float[] embedding = response.getEmbeddingVectors().get(0);
+```
+
+```java
+// v1.0.0 interface (legacy, deprecated)
+var request = new OpenAiEmbeddingParameters().setInput("Hello World");
+var response = OpenAiClient.forModel(OpenAiModel.TEXT_EMBEDDING_3_SMALL)
+    .embedding(request);
+float[] embedding = response.getData().get(0).getEmbedding();
 ```
 
 ---

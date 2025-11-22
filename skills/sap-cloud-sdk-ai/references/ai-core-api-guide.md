@@ -140,6 +140,23 @@ await DeploymentApi.deploymentDelete(
 ).execute();
 ```
 
+### Query Deployments
+
+```typescript
+// Query deployments with filters
+const deployments = await DeploymentApi.deploymentQuery(
+  {
+    status: 'RUNNING',
+    scenarioId: 'orchestration'
+  },
+  { 'AI-Resource-Group': 'default' }
+).execute();
+
+for (const deployment of deployments.resources) {
+  console.log(`ID: ${deployment.id}, Status: ${deployment.status}`);
+}
+```
+
 ### Resolve Deployment URL
 
 ```typescript
@@ -227,6 +244,12 @@ await VectorApi.createDocuments(
       }
     ]
   },
+  { 'AI-Resource-Group': 'default' }
+).execute();
+
+// Delete collection
+await VectorApi.deleteCollectionById(
+  collection.id,
   { 'AI-Resource-Group': 'default' }
 ).execute();
 ```
@@ -330,6 +353,13 @@ var templates = promptClient.listTemplates("customer-support");
 
 // Delete template (only imperatively managed)
 promptClient.deleteTemplate("template-id", "1.0.0");
+
+// List template edit history
+var history = promptClient.listPromptTemplateHistory(
+    "customer-support", // scenario
+    "1.0.0",            // version
+    "greeting-template" // name
+);
 ```
 
 ### Import YAML Templates
@@ -381,6 +411,31 @@ var prompt = new OrchestrationPrompt()
     .withTemplateRef("support-greeting", "customer-support", "1.0.0");
 
 var result = client.chatCompletion(prompt, config);
+```
+
+### Spring AI Integration with Prompt Registry
+
+```java
+import com.sap.ai.sdk.orchestration.spring.SpringAiConverter;
+
+// Get template and convert to Spring AI messages
+var templateResponse = promptClient.parsePromptTemplateByNameVersion(
+    "customer-support", "1.0.0", "support-greeting",
+    "default",
+    false, // includeHistory
+    new PromptTemplateSubstitutionRequest()
+        .inputParams(Map.of("company", "SAP", "customer_name", "John"))
+);
+
+// Convert to Spring AI message list
+var messages = SpringAiConverter.promptTemplateToMessages(templateResponse);
+
+// Use with Spring AI ChatClient
+var chatClient = ChatClient.builder(chatModel).build();
+var response = chatClient.prompt()
+    .messages(messages)
+    .call()
+    .content();
 ```
 
 ---

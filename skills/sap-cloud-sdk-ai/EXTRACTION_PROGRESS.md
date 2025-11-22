@@ -272,5 +272,19 @@ After initial extraction, the following enhancements were made:
    - JavaScript client initialization patterns
    - Streaming with `streamChatCompletionDeltas()` method
    - Function calling examples for both JS and Java
-   - Embedding client usage
+   - Embedding client usage with legacy v1.0.0 interface
    - Model versioning with `withVersion()` method
+
+4. **Second Review - Additional Enhancements**:
+   - **SKILL.md**: Added comprehensive model deprecation table with replacements
+   - **SKILL.md**: Added streaming response methods (getFinishReason, getTokenUsage)
+   - **SKILL.md**: Added additional response helpers (getDeltaToolCalls, getRefusal, getAssistantMessage)
+   - **orchestration-guide.md**: Added `buildDpiMaskingProvider()` with all options (replacement_strategy, allowlist, mask_grounding_input)
+   - **orchestration-guide.md**: Added JavaScript stream options (llm.include_usage, global.chunk_size, outputFiltering.overlap)
+   - **orchestration-guide.md**: Added embedding type parameter ('text' | 'document' | 'query')
+   - **orchestration-guide.md**: Added supported embedding models list
+   - **ai-core-api-guide.md**: Added `deploymentQuery()` method
+   - **ai-core-api-guide.md**: Added `deleteCollectionById()` for Vector API
+   - **ai-core-api-guide.md**: Added `listPromptTemplateHistory()` method
+   - **ai-core-api-guide.md**: Added `SpringAiConverter.promptTemplateToMessages()` usage
+   - **foundation-models-guide.md**: Added legacy v1.0.0 Java embedding interface

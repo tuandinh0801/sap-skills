@@ -121,10 +121,16 @@ For detailed connection options, see `references/connecting-to-ai-core.md`
 - **Google**: Gemini 2.5 Flash, Gemini 2.0 Flash
 - **Mistral**: Medium, Large
 
-### Deprecated (Do Not Use)
-- gpt-35-turbo, gpt-4 (without -o)
-- gemini-1.0-pro, gemini-1.5-*
-- Older Titan, Llama versions
+### Deprecated Models (Use Replacements)
+| Deprecated | Use Instead |
+|------------|-------------|
+| text-embedding-ada-002 | text-embedding-3-small/large |
+| gpt-35-turbo (all variants) | gpt-4o-mini |
+| gpt-4-32k | gpt-4o |
+| gpt-4 (base) | gpt-4o or gpt-4.1 |
+| gemini-1.0-pro | gemini-2.0-flash |
+| gemini-1.5-pro/flash | gemini-2.5-flash |
+| mistralai--mixtral-8x7b | mistralai--mistral-small-instruct |
 
 ## Core Features
 
@@ -218,11 +224,26 @@ JavaScript SDK provides helper methods:
 ```typescript
 const response = await client.chatCompletion({ placeholderValues });
 
-response.getContent();        // Model output string
-response.getTokenUsage();     // { prompt_tokens, completion_tokens, total_tokens }
-response.getFinishReason();   // 'stop', 'length', 'tool_calls', etc.
-response.getToolCalls();      // Array of function calls
-response.getAllMessages();    // Full message history
+response.getContent();          // Model output string
+response.getTokenUsage();       // { prompt_tokens, completion_tokens, total_tokens }
+response.getFinishReason();     // 'stop', 'length', 'tool_calls', etc.
+response.getToolCalls();        // Array of function calls
+response.getDeltaToolCalls();   // Partial tool calls (streaming)
+response.getAllMessages();      // Full message history
+response.getAssistantMessage(); // Assistant response only
+response.getRefusal();          // Refusal message if blocked
+```
+
+Streaming response methods:
+
+```typescript
+const stream = client.stream({ placeholderValues });
+for await (const chunk of stream.toContentStream()) {
+  process.stdout.write(chunk);
+}
+// After stream ends:
+stream.getFinishReason();
+stream.getTokenUsage();
 ```
 
 ## Advanced Topics

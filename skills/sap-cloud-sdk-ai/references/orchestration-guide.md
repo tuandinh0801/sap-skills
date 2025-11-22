@@ -172,6 +172,29 @@ const stream = client.stream(
 setTimeout(() => controller.abort(), 5000);
 ```
 
+### JavaScript Stream Options
+
+```typescript
+// Advanced streaming with options
+const stream = client.stream(
+  { placeholderValues: { question: 'Explain SAP CAP' } },
+  {
+    signal: controller.signal,
+    streamOptions: {
+      llm: {
+        include_usage: true  // Include token usage in stream (default: true)
+      },
+      global: {
+        chunk_size: 100  // Maximum characters per chunk
+      },
+      outputFiltering: {
+        overlap: 50  // Overlap for content filtering
+      }
+    }
+  }
+);
+```
+
 ### Java
 
 ```java
@@ -459,6 +482,33 @@ const client = new OrchestrationClient({
         { type: 'profile-location' }
       ]
     }]
+  }
+});
+```
+
+### Using buildDpiMaskingProvider (Recommended)
+
+```typescript
+import { buildDpiMaskingProvider } from '@sap-ai-sdk/orchestration';
+
+const client = new OrchestrationClient({
+  promptTemplating: { model: { name: 'gpt-4o' } },
+  masking: {
+    masking_providers: [
+      buildDpiMaskingProvider({
+        method: 'anonymization', // or 'pseudonymization'
+        entities: ['profile-email', 'profile-person', 'profile-phone'],
+        // Optional: replacement strategy
+        replacement_strategy: {
+          method: 'constant', // or 'fabricated_data'
+          value: '[REDACTED]'
+        },
+        // Optional: allow specific terms to remain unmasked
+        allowlist: ['SAP', 'Joule'],
+        // Optional: mask grounding input as well
+        mask_grounding_input: true
+      })
+    ]
   }
 });
 ```
@@ -903,20 +953,37 @@ import { OrchestrationEmbeddingClient } from '@sap-ai-sdk/orchestration';
 
 const client = new OrchestrationEmbeddingClient({
   embeddings: {
-    model: { name: 'text-embedding-3-large' }
+    model: {
+      name: 'text-embedding-3-large',
+      version: 'latest',           // optional
+      params: { dimensions: 512 }  // optional, model-specific
+    }
   }
 });
 
-// Single text
-const response = await client.embed({ input: 'SAP is an enterprise software company' });
+// Single text with type parameter
+const response = await client.embed({
+  input: 'SAP is an enterprise software company',
+  type: 'document'  // 'text' | 'document' | 'query'
+});
 const embedding = response.getEmbeddings()[0];
 
 // Batch embedding
-const response = await client.embed({
+const batchResponse = await client.embed({
   input: ['First text', 'Second text', 'Third text']
 });
-const embeddings = response.getEmbeddings();
+const embeddings = batchResponse.getEmbeddings();
+
+// Response methods
+response.getTokenUsage();           // Token consumption
+response.getIntermediateResults();  // Module results (masking diagnostics, etc.)
 ```
+
+### Supported Embedding Models
+- `text-embedding-3-small`, `text-embedding-3-large` (OpenAI)
+- `amazon--titan-embed-text` (Amazon)
+- `nvidia--llama-3.2-nv-embedqa-1b` (NVIDIA)
+- See SAP Note 3437766 for complete list
 
 ### Java (v1.11.0+)
 
