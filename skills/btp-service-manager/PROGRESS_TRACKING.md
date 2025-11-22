@@ -61,22 +61,44 @@
 - [x] `logout-54f7e42.md` - `smctl logout`
 - [x] `provision-b327b66.md` - `smctl provision` (sync/async modes)
 - [x] `bind-f53ff26.md` - `smctl bind` (sync/async modes)
+- [x] `unbind-19fadcd.md` - `smctl unbind` (force flag, sync/async)
 - [x] `deprovision-f48502c.md` - `smctl deprovision` (force flag, sync/async)
 - [x] `marketplace-ae6874a.md` - `smctl marketplace` (list offerings/plans)
 - [x] `register-broker-3e7a312.md` - `smctl register-broker`
 - [x] `register-platform-4fe2d10.md` - `smctl register-platform`
+- [x] `update-broker-c5acdba.md` - `smctl update-broker` (JSON payload)
+- [x] `update-platform-f930dbc.md` - `smctl update-platform` (regenerate-credentials)
+- [x] `delete-broker-f3018c2.md` - `smctl delete-broker`
 - [x] `list-instances-728f1b6.md` - `smctl list-instances`
 - [x] `list-bindings-0078d1a.md` - `smctl list-bindings`
+- [x] `list-brokers-75386b8.md` - `smctl list-brokers`
+- [x] `status-37936ee.md` - `smctl status` (async operation status)
+- [x] `help-556cb8a.md` - `smctl help`
+- [x] `info-4d2bb71.md` - `smctl info`
+- [x] `version-bcb35b8.md` - `smctl version`
 - [x] `get-operation-status-3b330bb.md` - Operation status API
 
 ### BTP CLI Commands
 - [x] `create-services-instance-5a44ad8.md` - `btp create services/instance`
 - [x] `create-services-binding-7cf9dc5.md` - `btp create services/binding`
 - [x] `get-services-instance-adb4c54.md` - `btp get services/instance`
+- [x] `update-services-instance-20ed2d3.md` - `btp update services/instance`
+- [x] `delete-services-instance-e6e07b4.md` - `btp delete services/instance`
+- [x] `delete-services-binding-768a80a.md` - `btp delete services/binding`
 - [x] `platforms-7610c08.md` - `btp` platform commands (list, get, register, update, unregister)
 - [x] `brokers-743f3f7.md` - Broker operations (register, update, list, delete)
 - [x] `offerings-5708056.md` - Offerings operations (list-offerings, list-plans, marketplace)
 - [x] `instances-23af00d.md` - Instance operations (provision, get, list, deprovision)
+
+### Additional API & Documentation
+- [x] `operations-abff334.md` - Operations API (async operation status)
+- [x] `working-with-sap-service-manager-apis-4e19b11.md` - API overview (Admin, Service Controller, OSB)
+- [x] `technical-access-666dfdc.md` - Technical client credentials access
+- [x] `user-access-37f0e7e.md` - User token endpoint and access
+- [x] `what-s-new-for-sap-service-manager-c9d5c05.md` - Release history (2021 updates)
+- [x] `updating-service-instances-002ae85.md` - Updating instances via cockpit
+- [x] `working-with-environment-instances-1d6897d.md` - Environment instances (CF, Kyma)
+- [x] `subscribing-to-sap-service-manager-feature-set-a-274d049.md` - Feature Set A subscription
 
 ---
 
@@ -85,11 +107,21 @@
 ### Overview
 - [x] `consuming-sap-btp-services-from-various-aa2ba14.md` - Multi-environment overview (CF, Neo, Kyma, K8s)
 
+### Environment-Specific Guides
+- [x] `consuming-sap-btp-services-from-the-clou-9a3d669.md` - Cloud Foundry consumption
+- [x] `consuming-sap-btp-services-from-the-neo-7cbbbee.md` - Neo environment (does NOT use OSBAPI/Service Manager)
+- [x] `consuming-sap-btp-services-from-the-kyma-20a8360.md` - Kyma consumption (links to SAP Help)
+- [x] `consuming-services-in-other-environments-0714ac2.md` - Other environments
+
 ### Kubernetes Consumption
 - [x] `consuming-sap-btp-services-in-kubernetes-b5a35bf.md` - K8s consumption overview
 - [x] `prerequisites-dd5faaa.md` - Prerequisites (kubectl 1.7+, SMCTL v1.10.1, Helm v3.1.2)
 - [x] `setup-e977f23.md` - Setup (cert-manager, service-operator-access plan, Helm deploy)
 - [x] `working-with-sap-btp-service-operator-0ccebd7.md` - ServiceInstance/ServiceBinding CRDs with YAML examples
+
+### Legacy Service Catalog
+- [x] `cluster-configuration-a55506d.md` - Cluster setup with broker proxy
+- [x] `working-with-service-catalog-86ab6f9.md` - svcat CLI commands (deprecated)
 
 ### Migration
 - [x] `migrating-from-svcat-to-sap-btp-service-ec7f5c7.md` - Migration from Service Catalog (scan, validate, migrate phases)

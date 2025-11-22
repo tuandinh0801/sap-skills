@@ -117,17 +117,26 @@ Update a service instance.
 
 **Syntax**:
 ```bash
-btp update services/instance <instance-id> [parameters]
+btp update services/instance [parameters]
 ```
 
-**Parameters**:
+**Required Parameters**:
 | Parameter | Description |
 |-----------|-------------|
-| `<instance-id>` | Service instance ID |
-| `-sa, --subaccount <id>` | Subaccount ID |
-| `--parameters <json>` | New parameters |
-| `--plan <id>` | New plan |
+| `-sa, --subaccount <id>` | Subaccount ID (skip if target set) |
+| `-s, --service` or `-n, --name <name>` | Service instance name |
+| `-id <id>` | Service instance ID |
+
+**Optional Parameters**:
+| Parameter | Description |
+|-----------|-------------|
+| `--new-name <name>` | New name for the instance |
+| `-p, --plan <id>` | New service plan ID |
+| `--plan-name <name>` | New service plan name |
+| `--parameters <json>` | New parameters as JSON |
 | `-l, --labels <json>` | New labels |
+
+**Note**: Plan updates only available if additional plans exist and are entitled.
 
 ---
 

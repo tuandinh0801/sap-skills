@@ -150,7 +150,8 @@ btp-service-manager/
 │   ├── btp-cli-commands.md           # Full BTP CLI reference
 │   ├── kubernetes-operator.md        # Service Operator guide
 │   ├── rate-limiting-filtering.md    # Limits and query operators
-│   └── roles-permissions.md          # Plans, roles, scopes
+│   ├── roles-permissions.md          # Plans, roles, scopes
+│   └── service-catalog-legacy.md     # Legacy svcat/broker proxy (deprecated)
 └── templates/
     ├── service-instance-cf.json      # CF instance parameters
     ├── service-binding-cf.json       # CF binding parameters

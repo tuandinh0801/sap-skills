@@ -626,6 +626,7 @@ Detailed documentation in `references/` directory:
 4. **kubernetes-operator.md** - Service Operator setup, CRDs, migration
 5. **rate-limiting-filtering.md** - Rate limits and query operators
 6. **roles-permissions.md** - Plans, roles, and scopes
+7. **service-catalog-legacy.md** - Legacy svcat and broker proxy setup (deprecated)
 
 ---
 

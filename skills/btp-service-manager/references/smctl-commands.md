@@ -340,15 +340,20 @@ Update a registered broker.
 
 **Syntax**:
 ```bash
-smctl update-broker [name] [flags]
+smctl update-broker [name] <json_broker> [flags]
 ```
+
+**Aliases**: `update-broker`, `ub`
 
 **Flags**:
 | Flag | Description |
 |------|-------------|
-| `--url <url>` | New broker URL |
-| `-b, --basic <user:pass>` | New credentials |
-| `--description <desc>` | New description |
+| `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Example**:
+```bash
+smctl update-broker broker '{"name": "new-name", "description": "new-description", "broker_url": "http://broker.com", "credentials": { "basic": { "username": "admin", "password": "admin" }}}'
+```
 
 ---
 
@@ -361,21 +366,38 @@ List all registered brokers.
 smctl list-brokers [flags]
 ```
 
+**Aliases**: `list-brokers`, `lb`
+
+**Flags**:
+| Flag | Description |
+|------|-------------|
+| `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Output columns**: ID, Name, URL, Description, Created, Updated
+
 ---
 
 ### smctl delete-broker
 
-Delete a registered broker.
+Delete one or more registered brokers.
 
 **Syntax**:
 ```bash
-smctl delete-broker [name] [flags]
+smctl delete-broker [name] <name2> <name3> ... [flags]
 ```
+
+**Aliases**: `delete-broker`, `db`
 
 **Flags**:
 | Flag | Description |
 |------|-------------|
 | `-f, --force` | Delete without confirmation |
+
+**Example**:
+```bash
+smctl delete-broker sample-broker-1
+# Output: Broker with name: sample-broker-1 successfully deleted
+```
 
 ---
 
@@ -411,8 +433,23 @@ Update a registered platform.
 
 **Syntax**:
 ```bash
-smctl update-platform [name] [flags]
+smctl update-platform [name] <json_platform> [flags]
 ```
+
+**Aliases**: `update-platform`, `up`
+
+**Flags**:
+| Flag | Description |
+|------|-------------|
+| `--regenerate-credentials` | Generate new credentials (old credentials become invalid) |
+| `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Example**:
+```bash
+smctl update-platform platform '{"name": "new-name", "description": "new-description", "type": "new-type"}'
+```
+
+**Note**: When using `--regenerate-credentials`, old credentials can no longer be used.
 
 ---
 
@@ -501,11 +538,39 @@ smctl [command] --help
 
 ### smctl info
 
-Display current session information.
+Display information about the connected SAP Service Manager instance.
 
 **Syntax**:
 ```bash
-smctl info
+smctl info [flags]
+```
+
+**Aliases**: `info`, `i`
+
+**Flags**:
+| Flag | Description |
+|------|-------------|
+| `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Output**: Service Management URL and authenticated user account.
+
+---
+
+### smctl version
+
+Display SMCTL version information.
+
+**Syntax**:
+```bash
+smctl version [flags]
+```
+
+**Aliases**: `version`, `v`
+
+**Example**:
+```bash
+smctl version
+# Output: Service Management Client 0.0.1
 ```
 
 ---
