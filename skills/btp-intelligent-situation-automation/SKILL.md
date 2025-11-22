@@ -45,32 +45,32 @@ Use this skill when:
 ```
 Subscription & Setup
 ├─ Prerequisites → references/setup-guide.md
-├─ Subscribe to service → references/setup-guide.md#subscription
-├─ Enable Event Mesh → references/setup-guide.md#event-mesh
-└─ Configure region (cf-eu10) → references/setup-guide.md#network
+├─ Subscribe to service → references/setup-guide.md#subscription-process
+├─ Enable Event Mesh → references/setup-guide.md#event-mesh-configuration
+└─ Configure region (cf-eu10) → references/setup-guide.md#network-requirements
 
 Onboarding S/4HANA Systems
 ├─ Expose APIs
-│  ├─ SAP S/4HANA Cloud → references/onboarding.md#cloud-apis
-│  └─ SAP S/4HANA (on-premise) → references/onboarding.md#onprem-apis
-├─ Configure destinations → references/onboarding.md#destinations
-├─ Set up Event Mesh communication → references/onboarding.md#event-mesh
-└─ Onboard system → references/onboarding.md#onboard-system
+│  ├─ SAP S/4HANA Cloud → references/onboarding.md#sap-s4hana-cloud
+│  └─ SAP S/4HANA (on-premise) → references/onboarding.md#sap-s4hana-on-premise
+├─ Configure destinations → references/onboarding.md#2-configure-destinations-on-sap-btp
+├─ Set up Event Mesh communication → references/onboarding.md#3-set-up-communication-with-sap-btp
+└─ Onboard system → references/onboarding.md#4-onboard-s4hana-system
 
 User Management
 ├─ Define roles → references/security-roles.md#role-templates
 ├─ Create role collections → references/security-roles.md#role-collections
-└─ Assign to users → references/security-roles.md#assignment
+└─ Assign to users → references/security-roles.md#assigning-role-collections-to-users
 
 Operations
-├─ Configure automatic resolution → references/operations.md#auto-resolution
+├─ Configure automatic resolution → references/operations.md#automatic-situation-resolution
 ├─ Export data → references/operations.md#data-export
-└─ View audit logs → references/operations.md#logging
+└─ View audit logs → references/operations.md#audit-logging
 
 Troubleshooting
-├─ Server errors → references/troubleshooting.md#server-error
-├─ No automation execution → references/troubleshooting.md#no-action
-├─ Missing configuration → references/troubleshooting.md#no-config
+├─ Server errors → references/troubleshooting.md#error-1-server-error-on-application-access
+├─ No automation execution → references/troubleshooting.md#error-2-no-action-applied
+├─ Missing configuration → references/troubleshooting.md#error-3-no-automation-configuration-found
 └─ Support: CA-SIT-ATM
 ```
 

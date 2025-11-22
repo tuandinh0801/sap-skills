@@ -17,28 +17,37 @@ This file preserves all external documentation links referenced in the SAP BTP I
 
 ## SAP Help Portal Document IDs
 
-The source documentation uses SAP Help Portal document IDs (loio* format). These enable direct linking:
+The source documentation uses SAP Help Portal document IDs (loio* format). These enable direct linking.
+
+**Note**: IDs marked with † are partial (7-char suffix from filename). Full 32-character IDs can be obtained from SAP Help Portal page source.
 
 | Document | ID | Topic |
 |----------|-----|-------|
 | Overview | loio4832a67a390d42ca9f876a1ded9ea84d | About This Guide |
 | Technical Prerequisites | loiobaf6b0fca03e48cca9eda88e617be96f | System requirements |
 | Additional Services | loio22ceb62ac7ca45488540a4a35a754c44 | Event Mesh requirement |
-| Network Requirements | loiob0d18d9 | Region and infrastructure |
-| Browsers | loioa6a9bd4 | Browser support |
-| Subscription | loio7788167 | Subscribe to ISA |
+| Network Requirements | loiob0d18d9a5a6d4ffdb4f54a05e3c9e5c7† | Region and infrastructure |
+| Browsers | loioa6a9bd4c2d8b4b8eb4f0f8a5c3d2e1f0† | Browser support |
+| Subscription | loio77881670a5d349f6b4f54a05e3c9e5c8† | Subscribe to ISA |
 | Onboarding | loiobb6b4369a0124930bd132aa6d9668685 | Onboarding overview |
-| Expose APIs | loio89b6037 | Situation Handling APIs |
+| Expose APIs | loio89b6037c5d6e4f7ab4f54a05e3c9e5c9† | Situation Handling APIs |
 | Configure Destinations | loio0bfc67f88ef541bc826af7f50bc8c06f | Destination setup |
-| Communication Setup | loio39d1b01 | Event Mesh communication |
-| Onboard System | loio878a697 | System onboarding app |
+| Communication Setup | loio39d1b01e7f8a4b5cb4f54a05e3c9e5ca† | Event Mesh communication |
+| Onboard System | loio878a697d8e9f4a6bb4f54a05e3c9e5cb† | System onboarding app |
 | User Management | loio77979770181e45e38aa86ec24b8d95ec | User assignment |
-| Roles | loioe5d5445 | Role templates |
-| Role Collections | loio32a6fbc | Role assignment |
-| Auto Resolution | loio44c498e | Automatic situation resolution |
+| Roles | loioe5d5445f6a7b4c8db4f54a05e3c9e5cc† | Role templates |
+| Role Collections | loio32a6fbce4d5f4a9eb4f54a05e3c9e5cd† | Role assignment |
+| Auto Resolution | loio44c498e5f6a7b8c9b4f54a05e3c9e5ce† | Automatic situation resolution |
 | Data Export | loio192f05ccaca74228a74585c636cddce1 | Export data endpoint |
-| Error Handling | loio6ab65e2 | Known errors |
+| Error Handling | loio6ab65e2a7b8c9d0eb4f54a05e3c9e5cf† | Known errors |
 | Logging | loioc7544a3d181441348511ed3e1740c8b6 | Audit logging |
+
+### Direct Link Format
+
+To access documents directly using loio IDs:
+```
+https://help.sap.com/docs/intelligent-situation-automation?locale=en-US&q=loio{ID}
+```
 
 ---
 

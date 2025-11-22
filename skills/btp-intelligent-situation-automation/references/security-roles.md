@@ -108,8 +108,10 @@ Role collections bundle one or more roles from one or more applications. They pr
 
 | Role Collection Name | Included Roles | Target Users |
 |---------------------|----------------|--------------|
-| ISA Key Users | SituationAutomationKeyUser, RuleRepositorySuperUser | Business users |
-| ISA Administrators | SituationAutomationAdminUser | Technical admins |
+| ISA Key Users* | SituationAutomationKeyUser, RuleRepositorySuperUser | Business users |
+| ISA Administrators* | SituationAutomationAdminUser | Technical admins |
+
+*Example names; customize based on your organization's naming conventions.
 
 **Reference**: SAP BTP documentation for Building Roles and Role Collections for Applications
 
@@ -264,6 +266,9 @@ Role Collection Check
 
 ## External Links
 
+For a comprehensive list of SAP documentation links with document IDs, see `references/external-links.md`.
+
+Key resources for role and security management:
 - **Role Collections**: https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/
 - **Trust Configuration**: https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/cb1bc8f1bd5c482e891063960d7acd78.html
 - **Authorization Management**: https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/6373bb7a96114d619bfdfdc6f505d1b9.html

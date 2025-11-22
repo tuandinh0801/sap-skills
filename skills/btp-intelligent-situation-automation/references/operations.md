@@ -299,7 +299,7 @@ Discover relationships between situations.
 ## External Links
 
 - **Audit Log Viewer**: https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/
-- **Data Protection**: https://help.sap.com/docs/BTP/
+- **Data Protection**: https://help.sap.com/docs/btp/sap-business-technology-platform/data-protection-and-privacy
 - **Business Rules**: https://help.sap.com/docs/business-rules
 
 ---

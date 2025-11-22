@@ -46,7 +46,7 @@ Create communication arrangements for these scenarios:
 4. Create communication arrangement for SAP_COM_0376
 5. Note the authentication credentials
 
-**Reference**: SAP S/4HANA Cloud Communication Management documentation
+**Reference**: See [SAP S/4HANA Cloud Communication Management](https://help.sap.com/docs/S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa)
 
 ### SAP S/4HANA (On-Premise)
 
@@ -66,7 +66,7 @@ Expose and activate these APIs:
 
 **Additional Requirement**: Install and configure SAP Cloud Connector to enable BTP access to on-premise system.
 
-**Reference**: SAP Help for Activating and Maintaining Services, Activating OData Services for APIs
+**Reference**: See [Activate and Maintain Services](https://help.sap.com/docs/SAP_S4HANA/684cffda9cbc4187ad7dad790b03b983) and [Activate OData Services for APIs](https://help.sap.com/docs/SAP_S4HANA/684cffda9cbc4187ad7dad790b03b983/fb3f3ce1a8b14b53a7fb4f847c920afc.html)
 
 ---
 
@@ -262,10 +262,12 @@ S/4HANA                    Event Mesh                BTP (ISA)
 
 ---
 
-## External Links
+## External Resources
 
+For a complete list of SAP documentation links and document IDs, see `references/external-links.md`.
+
+Key resources:
 - **Cloud Connector**: https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf
-- **Communication Management**: https://help.sap.com/docs/S4HANA_CLOUD/
 - **Event Mesh**: https://help.sap.com/docs/SAP_EM
 
 ---

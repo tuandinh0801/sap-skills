@@ -68,7 +68,7 @@ Ensure network access to:
 
 Intelligent Situation Automation supports the standard browsers supported by SAP BTP.
 
-**Reference**: Feature Scope Description for SAP BTP, Cloud Foundry, ABAP, and Kyma Environments (PDF)
+**Reference**: [Feature Scope Description for SAP BTP, Cloud Foundry, ABAP, and Kyma Environments (PDF)](https://help.sap.com/http.svc/rc/5e8107bf49684962b897217040398007/Cloud/en-US/SAP_Cloud_Platform_FSD.pdf)
 
 Consult the FSD document for specific browser versions and settings.
 
@@ -209,7 +209,7 @@ After setup, verify:
 
 - **SAP BTP Documentation**: https://help.sap.com/docs/BTP
 - **Event Mesh Documentation**: https://help.sap.com/docs/SAP_EM
-- **Subscription Guide**: https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/
+- **Subscription Guide**: https://help.sap.com/docs/BTP/65de2977205c403bbc107264b8eccf4b/7a3e39622be14413b2a4df7c02ca1170.html
 
 ---
 
