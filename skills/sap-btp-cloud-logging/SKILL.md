@@ -83,7 +83,7 @@ cf service-key my-cls-instance my-cls-key
 ```bash
 btp create services/instance \
   --subaccount <SUBACCOUNT_ID> \
-  --service my-cls-instance \
+  --name my-cls-instance \
   --offering-name "cloud-logging" \
   --plan-name standard \
   --parameters '{"retention_period": 14}'
@@ -91,7 +91,7 @@ btp create services/instance \
 # Create binding
 btp create services/binding \
   --subaccount <SUBACCOUNT_ID> \
-  --binding my-cls-binding \
+  --name my-cls-binding \
   --instance-name my-cls-instance
 
 # Get credentials
