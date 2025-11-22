@@ -1,5 +1,4 @@
 {
-  "$schema": "https://sap.github.io/data-intelligence/schemas/graph.json",
   "name": "basic_data_pipeline",
   "description": "Basic data processing pipeline template",
   "version": "1.0.0",
@@ -10,6 +9,18 @@
     }
   },
   "parameters": [
+    {
+      "name": "source_connection",
+      "type": "string",
+      "description": "Connection ID for source system (configure in Connection Management)",
+      "default": ""
+    },
+    {
+      "name": "target_connection",
+      "type": "string",
+      "description": "Connection ID for target system (configure in Connection Management)",
+      "default": ""
+    },
     {
       "name": "source_path",
       "type": "string",

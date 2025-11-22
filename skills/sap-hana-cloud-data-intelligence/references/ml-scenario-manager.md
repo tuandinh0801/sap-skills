@@ -445,7 +445,8 @@ Deploy trained models for inference.
 import pickle
 from sapdi.artifact import Artifact
 
-# Load model once
+# Load model once (thread-safe if model object is immutable/read-only during inference)
+# Note: model.predict() must be thread-safe for concurrent requests
 model = None
 
 def load_model():
@@ -574,7 +575,7 @@ v1.0 ─── v1.1 ─── v1.2
 - **Machine Learning**: https://github.com/SAP-docs/sap-hana-cloud-data-intelligence/tree/main/docs/machinelearning
 - **ML Scenario Manager**: https://github.com/SAP-docs/sap-hana-cloud-data-intelligence/tree/main/docs/machinelearning/ml-scenario-manager
 - **JupyterLab**: https://github.com/SAP-docs/sap-hana-cloud-data-intelligence/tree/main/docs/machinelearning/jupyterlab-environment
-- **Python SDK**: https://github.com/SAP-docs/sap-hana-cloud-data-intelligence/blob/main/docs/machinelearning/python-sdk-12f7aba.md
+- **Python SDK**: https://github.com/SAP-docs/sap-hana-cloud-data-intelligence/tree/main/docs/machinelearning (see python-sdk documentation)
 
 ---
 
