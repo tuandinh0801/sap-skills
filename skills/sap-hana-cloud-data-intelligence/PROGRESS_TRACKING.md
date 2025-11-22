@@ -596,7 +596,7 @@ docs/
 
 ### 2025-11-22 - Initial Release + Enhancements
 
-**Reference Files Created (11):**
+**Reference Files Created (12):**
 1. `operators-reference.md` - 266 operators documented
 2. `abap-integration.md` - Complete ABAP integration with SAP Notes
 3. `dtl-functions.md` - 79 DTL functions
@@ -608,6 +608,7 @@ docs/
 9. `data-workflow.md` - Workflow orchestration, transfer modes
 10. `security-cdc.md` - Data protection, CDC methods
 11. `additional-features.md` - Monitoring, cloud storage services, scenario templates, data types, Git terminal
+12. `modeling-advanced.md` - Graph snippets, SAP cloud apps integration, configuration types, 141 graph templates
 
 **Templates Created (3):**
 1. `basic-graph.json` - Basic pipeline template
@@ -633,6 +634,12 @@ docs/
 - Custom data types (Structure and Table types with naming conventions)
 - Git terminal integration (commands, credential handling, .gitignore)
 - Graph snippets for reusable patterns
+- Graph snippet creation, importing, editing workflows (10-step process)
+- SAP Cloud Applications integration (Fieldglass, Sales Cloud, Service Cloud)
+- Cloud Data Integration API (OData V4, Administrative/Provider services)
+- Configuration types (JSON schema, property definitions, value helpers)
+- Local data types (Structure, Table, Scalar types - Scalar local only)
+- Complete 141 example graph templates catalog (categorized)
 
 ---
 

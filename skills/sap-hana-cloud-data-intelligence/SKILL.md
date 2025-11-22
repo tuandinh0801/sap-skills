@@ -229,6 +229,7 @@ For detailed information, see:
 - `references/data-workflow.md` - Data workflow operators, orchestration
 - `references/security-cdc.md` - Security, data protection, CDC methods
 - `references/additional-features.md` - Monitoring, cloud storage services, scenario templates, data types, Git terminal
+- `references/modeling-advanced.md` - Graph snippets, SAP cloud apps, configuration types, 141 graph templates
 
 ## Templates
 
