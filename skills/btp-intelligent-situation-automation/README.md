@@ -136,7 +136,8 @@ btp-intelligent-situation-automation/
     ├── onboarding.md           # APIs, destinations, system onboarding
     ├── security-roles.md       # Roles, collections, assignment
     ├── operations.md           # Resolution, export, logging
-    └── troubleshooting.md      # Errors, solutions, support
+    ├── troubleshooting.md      # Errors, solutions, support
+    └── external-links.md       # All SAP documentation links & IDs
 ```
 
 ## Documentation Sources

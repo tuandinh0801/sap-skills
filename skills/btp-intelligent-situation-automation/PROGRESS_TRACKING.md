@@ -71,6 +71,7 @@
 3. **references/security-roles.md** - Role templates, role collections, user assignment
 4. **references/operations.md** - Situation resolution, data export, logging
 5. **references/troubleshooting.md** - Error handling, component CA-SIT-ATM
+6. **references/external-links.md** - All SAP documentation links with document IDs (loio*)
 
 ### Supporting Files
 - **README.md** - Auto-trigger keywords and quick start
@@ -89,9 +90,10 @@ The skill follows Anthropic best practices with three-level loading:
 - Pointers to detailed guides
 
 **Level 2: Reference Files (Loaded When Needed)**
-- 5 comprehensive guides
+- 6 comprehensive guides
 - Detailed configuration steps
 - Troubleshooting scenarios
+- All external SAP documentation links preserved
 - One-level-deep references (no nesting)
 
 ---
@@ -112,6 +114,8 @@ The skill follows Anthropic best practices with three-level loading:
 - ✅ Links enable easy updates when SAP docs change
 - ✅ "Last Verified" dates tracked
 - ✅ Source repository clearly documented
+- ✅ All external SAP documentation links preserved in external-links.md
+- ✅ SAP Help Portal document IDs (loio*) captured for direct linking
 
 ---
 
@@ -212,8 +216,10 @@ The skill follows Anthropic best practices with three-level loading:
 - ✅ No duplicated content: Proper organization into reference files
 - ✅ No missing information: Complete extraction verified
 - ✅ Progressive disclosure: SKILL.md concise with references
-- ✅ Links preserved: All external resources documented
+- ✅ Links preserved: All external resources documented in external-links.md
+- ✅ Document IDs preserved: All loio* identifiers captured
 - ✅ Tables preserved: All structured content maintained
+- ✅ Exact error messages: Preserved in troubleshooting.md
 - ✅ Standards compliance: Anthropic + SAP standards met
 
 ---

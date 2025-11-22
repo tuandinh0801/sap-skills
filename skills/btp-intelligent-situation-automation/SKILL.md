@@ -248,6 +248,7 @@ View logs via the Audit Log Viewer in Cloud Foundry.
 3. **references/security-roles.md** - Role templates, collections, user assignment
 4. **references/operations.md** - Automatic resolution, data export, logging
 5. **references/troubleshooting.md** - Error handling, support component
+6. **references/external-links.md** - All SAP documentation links with document IDs
 
 ## Best Practices
 
