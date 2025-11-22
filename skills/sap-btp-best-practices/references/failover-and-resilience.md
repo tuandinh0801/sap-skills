@@ -236,12 +236,26 @@ CAP App (AZ1)     CAP App (AZ2)
 
 ### Customer-Managed Backups
 
-**Important**: SAP doesn't manage backups of service configurations. Customers must:
+**Critical**: SAP doesn't manage backups of service configurations. You are responsible for backing up your service-specific configurations.
 
-1. Identify which SAP BTP services are in use
+**Key Responsibilities**:
+
+| Responsibility | Details |
+|----------------|---------|
+| **Self-Service Backup** | You must back up service configurations yourself |
+| **Service Documentation Review** | Consult each service's documentation for backup capabilities |
+| **Service Limitations Awareness** | Some services don't support user-specific configuration backups |
+| **Risk Mitigation** | Backup frequency varies by service; prevents accidental data loss |
+
+**Actions Required**:
+1. Identify all SAP BTP services currently in use
 2. Review service-specific backup documentation
-3. Implement backup strategies for configurations
-4. Ensure business continuity plans include config recovery
+3. Understand which services lack backup capabilities
+4. Implement backup strategies for supported configurations
+5. Plan accordingly for services without backup features
+6. Ensure business continuity plans include config recovery
+
+**Note**: If backup information is unavailable for a service, contact SAP support channels.
 
 ---
 

@@ -391,12 +391,23 @@ Lightweight on-premise agent establishing secure tunnel:
 - SAP provides security features; you must implement them properly
 - Consult legal experts for specific requirements
 
+**Important Disclaimer**: "SAP does not provide legal advice in any form." Compliance requires case-by-case decisions based on your specific system landscape and applicable laws.
+
 ### Important Considerations
 
 - Compliance involves multiple systems and products
 - User deletion requests may require coordinated removal across platforms
 - Tailor decisions to your system environment and legal framework
 - SAP Discovery Center provides EU Access service information
+
+### SAP's Role vs Your Responsibility
+
+| SAP Provides | You Must |
+|--------------|----------|
+| Security features | Implement them properly |
+| Data protection-relevant functions | Configure for your requirements |
+| Identity lifecycle management | Coordinate across all integrated systems |
+| Documentation and guidance | Consult legal experts for your jurisdiction |
 
 ---
 

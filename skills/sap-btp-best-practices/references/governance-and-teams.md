@@ -22,6 +22,17 @@ Before launching development initiatives:
 1. Establish an onboarding framework for new projects
 2. Create a knowledge transfer system for teams
 
+### Governance Model Implementation Areas
+
+| Area | Key Activities |
+|------|----------------|
+| **Organizational Structure** | Team composition definitions, IT support positions, accountability assignments |
+| **Process Development** | Integration pathways, knowledge sharing, operations documentation, tool selection |
+| **Resource & Change Management** | Personnel scaling, process improvements, system tools, reference materials |
+| **Support Operations** | Help desk workflows, incident management protocols, change management procedures |
+
+**Reference**: Team Topologies (teamtopologies.com) for organizational design patterns.
+
 ---
 
 ## Team Structure
@@ -32,13 +43,19 @@ Before launching development initiatives:
 
 **Purpose**: Manage cloud landscape infrastructure and reduce complexity for development teams.
 
-**Responsibilities**:
+**Core Responsibilities**:
 - Account operations and management
 - Build infrastructure setup
 - Governance and compliance guidelines
 - Security framework implementation
 - Enable developers with reduced cognitive load
 - Operate and ensure stable, secure cloud landscape
+
+**Extended CoE Functions**:
+- Drive cloud adoption and migration organization-wide
+- Provide thought leadership and roadblock resolution guidance
+- Identify, evaluate, and implement SAP BTP use cases
+- Can include enabling teams composed of specialists
 
 **Does NOT Handle**:
 - Individual application lifecycles

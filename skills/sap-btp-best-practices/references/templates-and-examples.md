@@ -50,6 +50,35 @@ This reference contains complete templates, manifests, and configuration example
 
 ---
 
+## Deployment Methods by Runtime - Complete Reference
+
+### Cloud Foundry and Neo Environments
+
+| Application Type | Deployment Tools |
+|------------------|------------------|
+| **Java Applications** | SAP BTP cockpit, Cloud Foundry CLI, Console client (Neo) |
+| **HTML5 Applications** | SAP Business Application Studio, Cloud Foundry CLI, SAP BTP cockpit |
+| **Node.js Applications** | SAP Business Application Studio, Cloud Foundry CLI |
+| **SAP HANA XSA Applications** | SAP HANA Deployment Infrastructure (HDI) from Business Application Studio, Cloud Foundry CLI |
+| **Custom Buildpacks** | Deployment dependent on buildpack specifications |
+
+**Key Recommendation**: Archive all components into a Multitarget Application (MTA) with deployment descriptor.
+
+### Kyma Environment
+
+| Approach | Description |
+|----------|-------------|
+| **Standard Dockerfile** | Package application in Linux Docker image |
+| **Cloud Native Buildpacks** | Alternative to Dockerfile for containerization |
+| **Kubernetes Jobs** | Use HTML5 application deployer |
+| **Automation (Production)** | SAP Continuous Integration and Delivery with Helm charts |
+
+**Supported Technologies**: Java, Node.js, Python, Scala, .Net, and others when packaged as Linux Docker images.
+
+**Production Recommendation**: Use automation tools rather than manual deployment processes.
+
+---
+
 ## Directory Template
 
 When creating new directories, document the following:
