@@ -81,6 +81,19 @@ This skill is triggered when working with:
 - Orchestration API
 - REST API AI Core
 
+### Advanced Features
+- Multi-turn chat conversations
+- Git repository sync applications
+- Prompt templates declarative
+- Prompt optimization SAP
+- AI content as a service
+- AI content security
+- Data protection privacy GDPR
+- Auditing logging SAP AI
+- KServe serving templates
+- Metadata vector search
+- Content packages DataRobot
+
 ## Keywords
 
 ```
@@ -94,7 +107,11 @@ ml operations, argo workflows, training pipeline, batch inference,
 model deployment, ai api, harmonized api, orchestration api,
 sap btp ai, enterprise ai, sap machine learning, ai core extended,
 prompt experimentation, ai launchpad workspaces, resource groups,
-configurations, executions, deployments, artifacts, scenarios
+configurations, executions, deployments, artifacts, scenarios,
+chat conversations, messages history, git sync applications,
+prompt templates, prompt optimization, ai content security,
+data protection, gdpr compliance, auditing logging, kserve,
+serving templates, metadata retrieval, content packages
 ```
 
 ## File Structure
@@ -110,7 +127,9 @@ sap-ai-core/
 │   ├── api-reference.md            # Complete API reference
 │   ├── grounding-rag.md            # Grounding and RAG implementation
 │   ├── ml-operations.md            # ML training and operations
-│   └── model-providers.md          # Model providers and configurations
+│   ├── model-providers.md          # Model providers and configurations
+│   ├── advanced-features.md        # Chat, security, auditing, templates
+│   └── ai-launchpad-guide.md       # Complete AI Launchpad UI guide
 └── templates/
     ├── deployment-config.json      # Deployment configuration template
     ├── orchestration-workflow.json # Orchestration workflow template

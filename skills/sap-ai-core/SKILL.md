@@ -595,6 +595,8 @@ For detailed documentation on specific topics:
 - `references/grounding-rag.md` - Grounding and RAG implementation
 - `references/api-reference.md` - Complete API endpoint reference
 - `references/ml-operations.md` - ML operations and training
+- `references/advanced-features.md` - Chat, applications, prompt templates, security, auditing
+- `references/ai-launchpad-guide.md` - Complete SAP AI Launchpad UI guide
 
 ## Documentation Sources
 
