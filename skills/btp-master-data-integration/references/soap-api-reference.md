@@ -280,8 +280,8 @@ Maximum 6 destinations per unique client connection.
 | BuPaRelConfirmationSendFailed | Failed to send confirmation |
 | KmConfirmationSendFailed | Failed to send confirmation |
 | BuPaConfirmationSendFailedHttpsSchemeExpected | HTTPS required for confirmation |
-| BuPaRelConfirmationFailedHttpsSchemeExpected | HTTPS required for confirmation |
-| KmConfirmationFailedHttpsSchemeExpected | HTTPS required for confirmation |
+| BuPaRelConfirmationSendFailedHttpsSchemeExpected | HTTPS required for confirmation |
+| KmConfirmationSendFailedHttpsSchemeExpected | HTTPS required for confirmation |
 
 ---
 
