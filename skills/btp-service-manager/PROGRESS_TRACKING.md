@@ -77,6 +77,10 @@
 - [x] `info-4d2bb71.md` - `smctl info`
 - [x] `version-bcb35b8.md` - `smctl version`
 - [x] `get-operation-status-3b330bb.md` - Operation status API
+- [x] `list-offerings-8a0659f.md` - `smctl list-offerings` (alias: lo)
+- [x] `list-plans-b0e4863.md` - `smctl list-plans`
+- [x] `get-instance-24fb85c.md` - `smctl get-instance` (alias: gi, --show-instance-params)
+- [x] `get-binding-8495036.md` - `smctl get-binding` (alias: gsb, --show-binding-params)
 
 ### BTP CLI Commands
 - [x] `create-services-instance-5a44ad8.md` - `btp create services/instance`
@@ -166,11 +170,12 @@
 
 ### references/ (Progressive Disclosure)
 1. **api-reference.md** - Complete API endpoints, parameters, responses
-2. **smctl-commands.md** - Full SMCTL CLI reference
+2. **smctl-commands.md** - Full SMCTL CLI reference (all commands with aliases)
 3. **btp-cli-commands.md** - Full BTP CLI reference
 4. **kubernetes-operator.md** - ServiceInstance/ServiceBinding CRDs, setup, migration
 5. **rate-limiting-filtering.md** - Detailed rate limits and filter operators
 6. **roles-permissions.md** - Complete roles, plans, and scopes
+7. **service-catalog-legacy.md** - Legacy svcat and broker proxy (deprecated)
 
 ### templates/
 1. **service-instance-cf.json** - Cloud Foundry instance parameters

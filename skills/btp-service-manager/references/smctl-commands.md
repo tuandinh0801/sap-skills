@@ -193,11 +193,28 @@ Get details of a specific instance.
 smctl get-instance [name] [flags]
 ```
 
+**Aliases**: `get-instance`, `gi`
+
 **Flags**:
 | Flag | Description |
 |------|-------------|
 | `-id <id>` | Instance ID (if name not unique) |
+| `--show-instance-params` | Show service instance configuration parameters |
 | `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Examples**:
+```bash
+# Basic retrieval
+smctl get-instance sample-instance
+
+# With configuration parameters
+smctl get-instance sample-instance --show-instance-params
+
+# JSON output
+smctl get-instance sample-instance -o json
+```
+
+**Output**: ID, Name, Service Plan ID, Platform ID, Created, Updated, Ready, Usable, Labels, Last Operation
 
 ---
 
@@ -295,11 +312,28 @@ Get details of a specific binding (includes credentials).
 smctl get-binding [name] [flags]
 ```
 
+**Aliases**: `get-binding`, `gsb`
+
 **Flags**:
 | Flag | Description |
 |------|-------------|
 | `-id <id>` | Binding ID (if name not unique) |
+| `--show-binding-params` | Show service binding configuration parameters |
 | `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Examples**:
+```bash
+# Basic retrieval
+smctl get-binding sample-binding
+
+# With binding parameters
+smctl get-binding sample-binding --show-binding-params
+
+# JSON output
+smctl get-binding sample-binding -o json
+```
+
+**Output**: ID, Name, Instance Name, Credentials, Created, Updated, Ready, Labels, Last Operation
 
 ---
 
@@ -462,6 +496,15 @@ List all registered platforms.
 smctl list-platforms [flags]
 ```
 
+**Aliases**: `list-platforms`, `lp`
+
+**Flags**:
+| Flag | Description |
+|------|-------------|
+| `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Output columns**: ID, Name, Type, Description, Created, Updated
+
 ---
 
 ### smctl delete-platform
@@ -502,6 +545,56 @@ smctl marketplace
 # List plans for specific service
 smctl marketplace -s xsuaa
 ```
+
+---
+
+### smctl list-offerings
+
+List all service offerings associated with the Service Manager.
+
+**Syntax**:
+```bash
+smctl list-offerings [flags]
+```
+
+**Aliases**: `list-offerings`, `lo`
+
+**Flags**:
+| Flag | Description |
+|------|-------------|
+| `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Example**:
+```bash
+smctl list-offerings
+smctl lo -o json
+```
+
+**Output columns**: ID, Name, Description, Broker ID, Ready, Labels
+
+---
+
+### smctl list-plans
+
+List all service plans associated with the Service Manager.
+
+**Syntax**:
+```bash
+smctl list-plans [flags]
+```
+
+**Flags**:
+| Flag | Description |
+|------|-------------|
+| `-o, --output <format>` | `json`, `yaml`, or `text` |
+
+**Example**:
+```bash
+smctl list-plans
+smctl list-plans -o json
+```
+
+**Output columns**: ID, Name, Description, Offering ID, Ready, Labels
 
 ---
 
@@ -581,4 +674,8 @@ smctl version
 - **Login**: https://github.com/SAP-docs/btp-service-manager/blob/main/docs/Service-Consumption/SAP-Service-Manager/login-a8ed7cf.md
 - **Provision**: https://github.com/SAP-docs/btp-service-manager/blob/main/docs/Service-Consumption/SAP-Service-Manager/provision-b327b66.md
 - **Bind**: https://github.com/SAP-docs/btp-service-manager/blob/main/docs/Service-Consumption/SAP-Service-Manager/bind-f53ff26.md
+- **Get Instance**: https://github.com/SAP-docs/btp-service-manager/blob/main/docs/Service-Consumption/SAP-Service-Manager/get-instance-24fb85c.md
+- **Get Binding**: https://github.com/SAP-docs/btp-service-manager/blob/main/docs/Service-Consumption/SAP-Service-Manager/get-binding-8495036.md
+- **List Offerings**: https://github.com/SAP-docs/btp-service-manager/blob/main/docs/Service-Consumption/SAP-Service-Manager/list-offerings-8a0659f.md
+- **List Plans**: https://github.com/SAP-docs/btp-service-manager/blob/main/docs/Service-Consumption/SAP-Service-Manager/list-plans-b0e4863.md
 - **GitHub Releases**: https://github.com/Peripli/service-manager-cli/releases
