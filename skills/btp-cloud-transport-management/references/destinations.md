@@ -233,7 +233,9 @@ https://demoabcd12345.hana.ondemand.com/sap/hana/xs/lm/slp/slp.xsjs
 
 ### 8. Neo Environment MTA Deployment (Deprecated)
 
-**Use when**: Transporting MTAs to SAP BTP Neo environment
+> **⚠️ Legacy Only**: SAP BTP Neo environment is end-of-life (EOL). Use only for existing Neo environments still in operation. **Cloud Foundry is the standard platform for all new implementations.** Plan migration to Cloud Foundry for long-term support.
+
+**Use when**: Transporting MTAs to existing SAP BTP Neo environments (legacy systems only)
 
 | Field | Value | Notes |
 |-------|-------|-------|
