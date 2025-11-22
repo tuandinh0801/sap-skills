@@ -6,9 +6,17 @@
 #   ./oauth-token-request.sh <uaa_url> <clientid> <clientsecret>
 #   ./oauth-token-request.sh -f credentials.json
 #
+# Environment Variables:
+#   TOKEN_OUTPUT_FILE - Custom path for token response (default: token_response.json)
+#
 # Output:
 #   Prints access token to stdout
-#   Full response saved to token_response.json
+#   Full response saved to $TOKEN_OUTPUT_FILE (default: token_response.json in cwd)
+#
+# Security Note:
+#   Token response file contains sensitive credentials. Ensure it is stored
+#   securely and deleted after use. For production, set TOKEN_OUTPUT_FILE to
+#   a secure location with restricted permissions.
 
 set -e
 
@@ -75,7 +83,8 @@ if [ -n "$CERTIFICATE" ] && [ -n "$KEY" ]; then
         --cert "$CERT_FILE" \
         --key "$KEY_FILE" \
         -H "Accept: application/json" \
-        -d "grant_type=client_credentials&client_id=${CLIENT_ID}")
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "client_id=$CLIENT_ID")
 
     # Clean up temp files
     rm -f "$CERT_FILE" "$KEY_FILE"
@@ -85,12 +94,19 @@ else
 
     RESPONSE=$(curl -s -X POST "$TOKEN_ENDPOINT" \
         -H "Accept: application/json" \
-        -d "grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}")
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "client_id=$CLIENT_ID" \
+        --data-urlencode "client_secret=$CLIENT_SECRET")
 fi
 
 # Save full response
-echo "$RESPONSE" > token_response.json
-echo "Full response saved to token_response.json" >&2
+# WARNING: Token response is written to current working directory.
+# For production use, consider using a secure temporary directory or
+# specifying an explicit output path with appropriate permissions.
+TOKEN_OUTPUT_FILE="${TOKEN_OUTPUT_FILE:-token_response.json}"
+echo "$RESPONSE" > "$TOKEN_OUTPUT_FILE"
+echo "Full response saved to $TOKEN_OUTPUT_FILE" >&2
+echo "WARNING: Token file contains sensitive credentials - secure or delete after use" >&2
 
 # Check for errors
 ERROR=$(echo "$RESPONSE" | jq -r '.error // empty')

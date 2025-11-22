@@ -127,7 +127,7 @@ helm install sap-btp-operator sap-btp-operator/sap-btp-operator \
 **Using X.509 Credentials**:
 
 ```bash
-helm install sap-btp-operator sap-btp-operator/sap-btp-service-operator \
+helm install sap-btp-operator sap-btp-operator/sap-btp-operator \
   --namespace sap-btp-operator \
   --create-namespace \
   --set manager.secret.clientid=<clientid> \
