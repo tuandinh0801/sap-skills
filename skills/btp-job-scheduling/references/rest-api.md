@@ -14,6 +14,7 @@
 5. [Schedule APIs](#schedule-apis)
 6. [Run Log APIs](#run-log-apis)
 7. [Node.js Client Library](#nodejs-client-library)
+8. [Java Client Library (XS Advanced)](#java-client-library-xs-advanced)
 
 ---
 
@@ -354,6 +355,52 @@ PUT /scheduler/jobs/42
 }
 ```
 
+### Configure Job by Name (Create or Update)
+
+**Endpoint:** `PUT /scheduler/jobs/{name}`
+
+**Purpose:** Update an existing job or create a new one using the job name as identifier.
+
+**Path Parameter:**
+- `name` (string, required): Job name to update or create
+
+**Request Body:**
+
+| Parameter | Required | Type | Default | Description |
+|-----------|----------|------|---------|-------------|
+| description | No | string | empty | Job description |
+| active | No | boolean | false | Activation status |
+| action | Yes (create) | string | - | Action endpoint URL |
+| httpMethod | No | string | POST | GET, POST, PUT, DELETE |
+| endTime | No | string/object/null | null | Job end time |
+| ansConfig | No | object | - | Alert Notification config |
+| calmConfig | No | object | - | Cloud ALM config |
+
+**Important:** The job name in the request URI must match the job name in the request body.
+
+**Example Request:**
+
+```json
+PUT /scheduler/jobs/dailyReport
+{
+  "name": "dailyReport",
+  "description": "Generate daily sales report",
+  "action": "https://myapp.../api/reports",
+  "active": true,
+  "httpMethod": "POST"
+}
+```
+
+**Response Codes:**
+
+| Code | Description |
+|------|-------------|
+| 200 | Job updated successfully |
+| 201 | New job created |
+| 400 | Invalid data (validation errors) |
+
+---
+
 ### Delete Job
 
 **Endpoint:** `DELETE /scheduler/jobs/{jobId}`
@@ -432,6 +479,55 @@ DELETE /scheduler/jobs/42
 ### Retrieve Schedule Details
 
 **Endpoint:** `GET /scheduler/jobs/{jobId}/schedules/{scheduleId}`
+
+**Path Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| jobId | integer | Job identifier |
+| scheduleId | string | Schedule identifier |
+
+**Query Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| displayLogs | boolean | Return schedule run logs (max 200) |
+
+**Example:**
+
+```
+GET /scheduler/jobs/42/schedules/cb5c9def-...?displayLogs=true
+```
+
+**Response (200):**
+
+```json
+{
+  "scheduleId": "cb5c9def-e2a0-4294-8a51-61e4db373f99",
+  "description": "Every 2 hours",
+  "data": {},
+  "type": "recurring",
+  "cron": null,
+  "repeatInterval": "2 hours",
+  "active": true,
+  "startTime": "2025-01-01T00:00:00.000Z",
+  "endTime": null,
+  "nextRunAt": "2025-01-20T14:00:00.000Z",
+  "logs": [
+    {
+      "runId": "ea16b621-...",
+      "executionTimestamp": "2025-01-20T12:00:05Z",
+      "httpStatus": 200,
+      "runStatus": "COMPLETED",
+      "runState": "SUCCESS"
+    }
+  ]
+}
+```
+
+**Response (404):** Invalid Job ID
+
+---
 
 ### Configure Schedule
 
@@ -519,6 +615,43 @@ PUT /scheduler/jobs/42/schedules/cb5c9def-...
 | scheduleTimestamp | When schedule was picked up for calculation |
 | executionTimestamp | When scheduler invoked action endpoint |
 | completionTimestamp | When scheduler received response |
+
+### Retrieve Run Log Details
+
+**Endpoint:** `GET /scheduler/jobs/{jobId}/schedules/{scheduleId}/runs/{runId}`
+
+**Path Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| jobId | integer | Job identifier |
+| scheduleId | string | Schedule identifier |
+| runId | string | Run identifier |
+
+**Example:**
+
+```
+GET /scheduler/jobs/2/schedules/5f58c2fb-.../runs/5646889BB133728EE10000000A61A0D8
+```
+
+**Response (200):**
+
+```json
+{
+  "runId": "5646889BB133728EE10000000A61A0D8",
+  "runText": "Job completed successfully",
+  "httpStatus": 200,
+  "executionTimestamp": "2025-01-20T06:00:05Z",
+  "scheduleTimestamp": "2025-01-20T06:00:00Z",
+  "completionTimestamp": "2025-01-20T06:00:10Z",
+  "runStatus": "COMPLETED",
+  "runState": "SUCCESS"
+}
+```
+
+**Response (404):** Invalid Job ID
+
+---
 
 ### Update Run Log (Async Callback)
 
@@ -770,11 +903,28 @@ app.listen(process.env.PORT || 3000);
 
 ---
 
+## Java Client Library (XS Advanced)
+
+### Overview
+
+A Java Client Library (`java-js-client`) is available for SAP HANA Platform XS Advanced environments.
+
+**Use Case:** For Java-based applications running on SAP HANA XS Advanced.
+
+**Note:** This library is specific to XS Advanced and not for general Cloud Foundry Java applications. For Cloud Foundry Java apps, use the REST API directly with standard HTTP clients.
+
+### Availability
+
+Available through SAP's internal package registry for XS Advanced development.
+
+---
+
 ## External References
 
 ### SAP Documentation
 - **REST API Reference**: https://help.sap.com/docs/job-scheduling/sap-job-scheduling-service/sap-job-scheduling-service-rest-apis
 - **Node.js Client**: https://www.npmjs.com/package/@sap/jobs-client
+- **Java Client (XS Advanced)**: Available via SAP HANA XS Advanced documentation
 - **Authentication**: https://help.sap.com/docs/job-scheduling/sap-job-scheduling-service/authentication
 
 ### Source Files

@@ -63,7 +63,9 @@ The only available plan for SAP Job Scheduling Service.
 | Authentication | OAuth 2.0 |
 | Service Name | `jobscheduler` |
 | Plan Name | `standard` |
-| Custom Parameters | None supported |
+| Custom Parameters | None required (see below) |
+
+**Note (November 2024 Update):** The `enable-xsuaa-support` property now **defaults to enabled**. No additional parameters are required during service instance creation. Previously, this had to be explicitly set.
 
 ---
 

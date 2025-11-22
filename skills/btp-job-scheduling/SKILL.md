@@ -80,6 +80,9 @@ Troubleshooting
 ├─ Common errors → references/troubleshooting.md#errors
 ├─ FAQ → references/troubleshooting.md#faq
 └─ Support: BC-CP-CF-JBS
+
+Version History & Updates
+└─ What's New (2021-2025) → references/changelog.md
 ```
 
 ## Core Concepts
@@ -285,6 +288,7 @@ Limits stack - both can apply simultaneously.
 5. **references/integrations.md** - Cloud ALM, Alert Notification Service
 6. **references/troubleshooting.md** - FAQ, error scenarios, monitoring
 7. **references/operations.md** - Dashboard, backup/restore, service behavior
+8. **references/changelog.md** - Version history, feature updates (2021-2025)
 
 ### Templates Available
 

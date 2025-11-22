@@ -78,6 +78,7 @@ Execute a single time using:
 - Execute at configured time, overriding job-level startTime
 - Execute immediately if scheduled time is past but endTime is future
 - Do not execute if both time and endTime are in the past
+- **Automatic Cleanup:** Unused one-time schedules are deleted after **30 days of inactivity** (as of May 2025)
 
 ### Recurring Schedules
 

@@ -127,12 +127,13 @@
 
 ### Reference Files (Progressive Disclosure)
 1. **references/concepts.md** - Schedule types, formats, lifecycle, async mode, multitenancy
-2. **references/rest-api.md** - Complete REST API reference, Node.js client
+2. **references/rest-api.md** - Complete REST API reference, Node.js client, Java client
 3. **references/setup-guide.md** - Prerequisites, service instance creation (Cockpit/CLI/Kyma)
 4. **references/security.md** - OAuth 2.0, scopes, credential rotation
 5. **references/integrations.md** - Alert Notification, Cloud ALM integration
 6. **references/troubleshooting.md** - FAQ, error scenarios, monitoring
 7. **references/operations.md** - Dashboard, backup/restore, service behavior
+8. **references/changelog.md** - Version history, feature updates (2021-2025)
 
 ### Template Files
 1. **templates/job-creation.json** - Job creation request template
@@ -156,7 +157,7 @@ The skill follows Anthropic best practices with three-level loading:
 - Pointers to detailed guides
 
 **Level 2: Reference Files (Loaded When Needed)**
-- 7 comprehensive guides
+- 8 comprehensive guides
 - Detailed API documentation
 - Configuration templates
 - Troubleshooting scenarios

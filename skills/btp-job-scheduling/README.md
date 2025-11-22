@@ -76,7 +76,8 @@ btp-job-scheduling/
 │   ├── security.md             # OAuth 2.0, XSUAA, credentials
 │   ├── integrations.md         # Cloud ALM, Alert Notification
 │   ├── troubleshooting.md      # FAQ, error scenarios
-│   └── operations.md           # Dashboard, backup, service behavior
+│   ├── operations.md           # Dashboard, backup, service behavior
+│   └── changelog.md            # Version history (2021-2025)
 └── templates/
     ├── job-creation.json       # Job creation request template
     └── xs-security.json        # XSUAA configuration template
