@@ -82,10 +82,6 @@ skills/sapui5-cli/
 │   ├── ui5-workspace.yaml        # Template for workspace/monorepo
 │   ├── custom-task-template.js   # Custom task example
 │   └── custom-middleware-template.js  # Custom middleware example
-│
-└── scripts/
-    ├── validate-ui5-yaml.js      # Validate ui5.yaml syntax
-    └── check-dependencies.js     # Check UI5 CLI dependencies
 ```
 
 ### Content Sections to Extract

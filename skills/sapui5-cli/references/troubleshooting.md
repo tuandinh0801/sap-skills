@@ -382,8 +382,13 @@ framework:
 → name: SAPUI5
 ```
 
-**3. Validate against schema**:
-Add to editor settings (VS Code example):
+**3. Validate against JSON schema**:
+
+UI5 CLI validates configuration against the official schema automatically (Spec v2.0+).
+
+**Schema URL**: https://ui5.github.io/cli/schema/ui5.yaml.json
+
+**IDE Integration** (VS Code example):
 ```json
 {
   "yaml.schemas": {
@@ -392,9 +397,12 @@ Add to editor settings (VS Code example):
 }
 ```
 
-**4. Use validation script**:
+This enables real-time validation in your editor via the YAML Language Server.
+
+**4. Test configuration with CLI**:
 ```bash
-node scripts/validate-ui5-yaml.js
+ui5 tree                # Will fail if ui5.yaml is invalid
+ui5 build --dry-run     # Validates config without building (if supported)
 ```
 
 ---

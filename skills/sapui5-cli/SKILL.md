@@ -359,13 +359,6 @@ This skill provides working templates for common configurations:
 - **`templates/custom-task-template.js`**: Custom build task boilerplate
 - **`templates/custom-middleware-template.js`**: Custom server middleware boilerplate
 
-## Validation Scripts
-
-Use these scripts to validate configurations:
-
-- **`scripts/validate-ui5-yaml.js`**: Validate ui5.yaml against JSON schema
-- **`scripts/check-dependencies.js`**: Check for dependency conflicts
-
 ## Important Notes
 
 ### Specification Versions
