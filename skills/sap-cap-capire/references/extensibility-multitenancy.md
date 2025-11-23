@@ -1,6 +1,8 @@
 # Extensibility and Multitenancy Reference
 
-**Source**: https://cap.cloud.sap/docs/guides/
+**Source**:
+- Multitenancy: https://cap.cloud.sap/docs/guides/multitenancy/
+- Extensibility: https://cap.cloud.sap/docs/guides/extensibility/
 
 ## SaaS Multitenancy
 
@@ -66,24 +68,28 @@ curl -X PUT http://localhost:4005/-/cds/saas-provisioning/tenant/t1
 ### Tenant Events
 
 ```js
+const LOG = cds.log('mtx');  // Use structured logging in production
+
 // Subscribe handler
 cds.on('subscribe', async (tenant) => {
-  console.log(`Tenant ${tenant} subscribed`);
+  LOG.info(`Tenant ${tenant} subscribed`);
   // Initialize tenant-specific data
 });
 
 // Upgrade handler
 cds.on('upgrade', async (tenant) => {
-  console.log(`Tenant ${tenant} upgraded`);
+  LOG.info(`Tenant ${tenant} upgraded`);
   // Run migrations
 });
 
 // Unsubscribe handler
 cds.on('unsubscribe', async (tenant) => {
-  console.log(`Tenant ${tenant} unsubscribed`);
+  LOG.info(`Tenant ${tenant} unsubscribed`);
   // Cleanup
 });
 ```
+
+> **Note**: In production, use `cds.log()` for structured logging instead of `console.log`. This integrates with SAP BTP logging services and supports log levels.
 
 ### Production Deployment
 

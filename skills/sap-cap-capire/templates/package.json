@@ -12,7 +12,8 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/cds-dk": "^8",
-    "@sap/eslint-plugin-cds": "^3"
+    "@sap/eslint-plugin-cds": "^3",
+    "jest": "^29"
   },
   "scripts": {
     "start": "cds-serve",
@@ -40,7 +41,7 @@
           "users": {
             "alice": {
               "password": "alice",
-              "roles": ["admin", "authenticated-user"]
+              "roles": ["Admin", "authenticated-user"]
             },
             "bob": {
               "password": "bob",

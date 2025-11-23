@@ -67,17 +67,17 @@ export default class CatalogService extends cds.ApplicationService {
     const { Orders } = cds.entities;
 
     // Check stock availability
-    const bookData = await SELECT.one.from(Books, book);
+    const bookData = await SELECT.one.from(Books).where({ ID: book });
     if (!bookData) {
-      req.reject(404, `Book ${book} not found`);
-      return { success: false, message: 'Book not found' };
+      // Use req.reject for error responses - terminates request with HTTP error
+      return req.reject(404, `Book ${book} not found`);
     }
 
-    if (bookData.stock < quantity) {
-      return {
-        success: false,
-        message: `Insufficient stock. Available: ${bookData.stock}`
-      };
+    // Guard against undefined stock
+    const currentStock = bookData.stock ?? 0;
+    if (currentStock < quantity) {
+      // Use req.reject for business rule violations (409 Conflict)
+      return req.reject(409, `Insufficient stock. Available: ${currentStock}`);
     }
 
     // Update stock
@@ -126,7 +126,8 @@ export default class CatalogService extends cds.ApplicationService {
       qry.where({ genre_code: genre });
     }
 
-    if (maxPrice) {
+    // Check for undefined AND null since optional parameters can be either
+    if (maxPrice !== undefined && maxPrice !== null) {
       qry.where({ price: { '<=': maxPrice } });
     }
 

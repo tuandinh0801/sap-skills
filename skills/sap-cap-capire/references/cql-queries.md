@@ -135,6 +135,19 @@ await SELECT.from(Books).where({ 'author.name': 'John Doe' });
 ```
 
 ### Expand (Deep Read)
+
+**Using columns with expand:**
+```js
+// Expand syntax with columns array
+await SELECT.from(Books)
+  .columns('ID', 'title', { ref: ['author'], expand: ['ID', 'name'] });
+
+// Using '*' with expand
+await SELECT.from(Books)
+  .columns('*', { ref: ['author'], expand: ['*'] });
+```
+
+**Fluent lambda syntax:**
 ```js
 // Fluent syntax
 await SELECT.from(Books, b => {
@@ -280,10 +293,14 @@ Compositions automatically cascade deletes to child entities.
 
 ## UPSERT
 
+**Behavior**: UPSERT performs INSERT if record with key doesn't exist, otherwise UPDATE.
+Key fields are required to determine existence.
+
 ```js
 // Insert if not exists, update if exists
+// IMPORTANT: Key field (ID) MUST be provided
 await UPSERT.into(Books).entries({
-  ID: bookId,
+  ID: bookId,  // Key field required
   title: 'Updated or New Title',
   stock: 50
 });
@@ -293,6 +310,9 @@ await UPSERT.into(Books).entries([
   { ID: id1, title: 'Book 1' },
   { ID: id2, title: 'Book 2' }
 ]);
+
+// UPSERT does NOT support .where() - use UPDATE for conditional updates
+// UPSERT does NOT merge with existing data - all provided fields are set
 ```
 
 ## Raw SQL

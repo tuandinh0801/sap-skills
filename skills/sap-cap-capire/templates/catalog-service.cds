@@ -103,8 +103,12 @@ service OrderService {
   entity Orders as projection on my.Orders;
 
   /**
-   * Order items - accessible through parent
+   * Order items - accessible through parent order
+   * Restriction inherited from parent Orders entity via composition
    */
+  @restrict: [
+    { grant: '*', where: 'parent.customer.userId = $user' }
+  ]
   entity OrderItems as projection on my.OrderItems;
 
   /**

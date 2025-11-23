@@ -361,6 +361,14 @@ annotate CatalogService.Books with {
 };
 ```
 
+**TextArrangement Values:**
+| Value | Display | Example |
+|-------|---------|---------|
+| `#TextOnly` | Only text, hide ID | "Fiction" |
+| `#TextFirst` | Text before ID | "Fiction (FIC)" |
+| `#TextLast` | ID before text | "(FIC) Fiction" |
+| `#TextSeparate` | Text in separate column | ID and text displayed separately |
+
 ### Semantic Key
 ```cds
 annotate CatalogService.Books with @Common.SemanticKey: [isbn];

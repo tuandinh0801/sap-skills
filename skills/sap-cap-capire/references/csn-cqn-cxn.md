@@ -145,8 +145,8 @@ let results = await cds.run(query)
 {
   SELECT: {
     distinct: true,           // Optional: distinct results
-    count: true,              // Optional: return total count
-    one: true,                // Optional: return single object
+    count: true,              // Optional: adds $count to result (OData-style)
+    one: true,                // Optional: returns single object or undefined (not array)
     from: source,             // Required: source table/view
     columns: column[],        // Optional: projection
     where: expr[],            // Optional: filter
@@ -157,6 +157,12 @@ let results = await cds.run(query)
   }
 }
 ```
+
+**Result Behavior:**
+- Default: Returns array of records `[{...}, {...}]`
+- `one: true`: Returns single object `{...}` or `undefined` if no match (not array)
+- `count: true`: Returns records with `$count` property indicating total matches
+- Always check for `undefined`/empty results before accessing properties
 
 ### Source Types
 

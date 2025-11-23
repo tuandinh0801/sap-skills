@@ -85,13 +85,15 @@ module.exports = class CatalogService extends cds.ApplicationService {
     const { Orders } = cds.entities;
 
     // Check stock availability
-    const bookData = await SELECT.one.from(Books, book);
+    const bookData = await SELECT.one.from(Books).where({ ID: book });
     if (!bookData) {
       return req.reject(404, `Book ${book} not found`);
     }
 
-    if (bookData.stock < quantity) {
-      return req.reject(409, `Insufficient stock. Available: ${bookData.stock}`);
+    // Guard against undefined stock
+    const currentStock = bookData.stock ?? 0;
+    if (currentStock < quantity) {
+      return req.reject(409, `Insufficient stock. Available: ${currentStock}`);
     }
 
     // Create order

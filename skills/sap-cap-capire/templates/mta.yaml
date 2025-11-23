@@ -12,9 +12,11 @@ parameters:
 
 build-parameters:
   before-all:
+    # IMPORTANT: These commands run in MTA builder container
+    # Ensure package.json and package-lock.json are committed
     - builder: custom
       commands:
-        - npm ci
+        - npm ci              # Requires package-lock.json to exist
         - npx cds build --production
 
 modules:
@@ -58,6 +60,10 @@ modules:
   # ============================================
   # App Router Module (Optional)
   # ============================================
+  # PREREQUISITE: Create app/router/ directory with:
+  #   - package.json (with @sap/approuter dependency)
+  #   - xs-app.json (route configuration)
+  # See: https://cap.cloud.sap/docs/guides/security/authorization#app-router
   - name: cap-bookshop-app
     type: approuter.nodejs
     path: app/router
@@ -101,6 +107,10 @@ resources:
   # ============================================
   # HDI Container (SAP HANA)
   # ============================================
+  # Service Plans:
+  #   - hdi-shared: Standard shared HDI container (most common)
+  #   - hana: Full HANA instance (rarely needed, expensive)
+  # Check entitlements: cf marketplace -e hana
   - name: cap-bookshop-db
     type: com.sap.xs.hdi-container
     parameters:

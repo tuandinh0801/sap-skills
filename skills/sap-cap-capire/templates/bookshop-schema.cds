@@ -33,6 +33,9 @@ entity Authors : cuid, managed {
 
 /**
  * Genres as hierarchical code list
+ * Note: CodeList from @sap/cds/common provides:
+ *   - name: localized String(255)
+ *   - descr: localized String(1000)
  */
 entity Genres : CodeList {
   key code    : String(10);

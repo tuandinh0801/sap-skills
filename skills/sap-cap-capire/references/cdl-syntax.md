@@ -235,7 +235,9 @@ entity FilteredBooks(minStock: Integer, maxPrice: Decimal)
 ```cds
 entity Books {
   author : Association to Authors;
-  // Auto-generates: author_ID : UUID;
+  // CAP auto-generates foreign key column: author_ID
+  // The FK type matches the target's primary key (UUID if Authors uses cuid)
+  // No explicit definition needed - CAP handles persistence automatically
 }
 ```
 
@@ -250,7 +252,9 @@ entity Orders {
 ```cds
 entity Books {
   author    : Association to Authors on author.ID = author_ID;
-  author_ID : UUID;  // Explicit foreign key
+  author_ID : UUID;  // Explicit foreign key - REQUIRED for unmanaged associations
+  // Unlike managed associations, you must define the FK field yourself
+  // and specify the ON condition to join the entities
 }
 ```
 

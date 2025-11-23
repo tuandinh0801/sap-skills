@@ -18,6 +18,11 @@
 | `@requires` | Role-based access | `@requires: 'admin'` |
 | `@restrict` | Fine-grained authorization | See Authorization section |
 
+**@readonly semantics:**
+- **Entity-level**: Blocks CREATE, UPDATE, DELETE operations. Only READ allowed.
+- **Field-level**: Field cannot be modified in UPDATE/CREATE payloads.
+- Example: `@readonly createdAt : Timestamp` - auto-set by system, user cannot modify.
+
 ### Input Validation
 | Annotation | Purpose | Example |
 |------------|---------|---------|
@@ -209,12 +214,27 @@ annotate Orders with @UI.LineItem: [
     CriticalityRepresentation: #WithIcon
   }
 ];
+```
 
-// Where criticality is computed:
-// 0 = Neutral (grey)
-// 1 = Negative (red)
-// 2 = Critical (yellow)
-// 3 = Positive (green)
+**Criticality Values and Visual Representation:**
+| Value | Constant | Color | Icon | Use Case |
+|-------|----------|-------|------|----------|
+| 0 | Neutral | Grey | None | Default/informational |
+| 1 | Negative | Red | ❌ | Error, failed, rejected |
+| 2 | Critical | Yellow/Orange | ⚠️ | Warning, needs attention |
+| 3 | Positive | Green | ✓ | Success, completed, approved |
+
+**Computed Field Example:**
+```cds
+entity Orders {
+  status : String;
+  criticality : Integer = case
+    when status = 'cancelled' then 1
+    when status = 'pending' then 2
+    when status = 'delivered' then 3
+    else 0
+  end stored;
+}
 ```
 
 ## Common Annotations

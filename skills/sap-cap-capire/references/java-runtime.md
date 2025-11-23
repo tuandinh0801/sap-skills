@@ -57,8 +57,10 @@ Access at `http://localhost:8080` with mock user "authenticated".
 
 ```java
 @Component
-@ServiceName("CatalogService")
+@ServiceName("CatalogService")  // Links this handler to CatalogService defined in CDS
 public class CatalogServiceHandler implements EventHandler {
+  // Note: Constants like BOOKS, Books_, Authors_ are generated from CDS model
+  // Located in srv/src/gen/java/ - regenerated on each `mvn compile`
 
   @Before(event = CqnService.EVENT_CREATE, entity = Books_.CDS_NAME)
   public void validateBook(CdsCreateEventContext context, Books book) {
