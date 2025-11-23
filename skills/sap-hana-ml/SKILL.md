@@ -297,14 +297,17 @@ seasonal_plot(ts_df, column='VALUE', period=12)
 
 | Category | Key Algorithms |
 |----------|----------------|
-| **Classification** | LogisticRegression, DecisionTreeClassifier, RandomForest (RDTClassifier), SVC, NaiveBayes, KNNClassifier, MLPClassifier, HybridGradientBoostingClassifier |
-| **Regression** | LinearRegression, DecisionTreeRegressor, SVR, GLM, PolynomialRegression, MLPRegressor, HybridGradientBoostingRegressor |
-| **Clustering** | KMeans, KMedoids, DBSCAN, AgglomerateHierarchicalClustering, SpectralClustering, GaussianMixture, SOM |
-| **Time Series** | ARIMA, AutoARIMA, ExponentialSmoothing, BSTS, LSTM, LTSF, GRUAttention, ROCKET |
-| **Preprocessing** | FeatureNormalizer, PCA, Imputer, SMOTE, train_test_val_split, FeatureSelection |
-| **Association** | Apriori, FPGrowth, SPM |
-| **Recommender** | ALS, FFMClassifier, FFMRegressor, MLPRecommender |
-| **Statistics** | ttest, f_oneway, chi2, KDE, correlation, distribution functions |
+| **Classification** | LogisticRegression, DecisionTreeClassifier, RDTClassifier, HybridGradientBoostingClassifier, SVC, OneClassSVM, NaiveBayes, KNNClassifier, MLPClassifier |
+| **Regression** | LinearRegression, PolynomialRegression, GLM, SVR, DecisionTreeRegressor, RDTRegressor, HybridGradientBoostingRegressor, MLPRegressor, CoxProportionalHazardModel |
+| **Clustering** | KMeans, KMedoids, DBSCAN, GeometryDBSCAN, AgglomerateHierarchicalClustering, SpectralClustering, GaussianMixture, SOM |
+| **Time Series** | ARIMA, AutoARIMA, SingleExponentialSmoothing, DoubleExponentialSmoothing, TripleExponentialSmoothing, AutoExponentialSmoothing, LSTM, BSTS, CPD, BCPD |
+| **Preprocessing** | FeatureNormalizer, PCA, Imputer, FeatureSelection, SMOTE, train_test_val_split |
+| **Association** | Apriori, AprioriLite, FPGrowth, KORD |
+| **Recommender** | ALS, FRM, FFMClassifier, FFMRegressor, FFMRanker |
+| **Statistics** | ttest_1samp, ttest_ind, f_oneway, chi_squared, KDE, pearsonr_matrix, distribution functions |
+| **Model Selection** | GridSearchCV, RandomSearchCV, Pipeline |
+
+**Note**: Additional algorithms (LTSF, GRUAttention, ROCKET, SPM, MLPRecommender) are referenced in SAP documentation v2.22.241011 but may require specific HANA versions. See `references/PAL_ALGORITHMS.md` for complete details.
 
 ### APL Algorithm Classes
 
