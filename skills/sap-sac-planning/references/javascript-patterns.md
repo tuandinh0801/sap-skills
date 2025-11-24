@@ -267,6 +267,27 @@ function applyFactor(factor) {
 
 // Usage: increase by 10%
 applyFactor(1.1);
+
+// Usage: decrease by 50%
+applyFactor(0.5);
+```
+
+### Enable/Disable Planning Based on Business Rules
+
+```javascript
+// Disable planning in Q4 (budget freeze)
+function checkPlanningAvailability() {
+    var currentMonth = new Date().getMonth() + 1;
+
+    if (currentMonth >= 10 && currentMonth <= 12) {
+        Table_Budget.getPlanning().setEnabled(false);
+        Button_Save.setEnabled(false);
+        Application.showMessage("Budget changes locked in Q4");
+    } else {
+        Table_Budget.getPlanning().setEnabled(true);
+        Button_Save.setEnabled(true);
+    }
+}
 ```
 
 ### Submit Data Changes
@@ -422,6 +443,60 @@ function revertChanges() {
     // (In real app, use custom confirmation dialog)
     privateVersion.revert();
     Application.showMessage("Changes reverted");
+}
+```
+
+### Check Dirty Status Before Publishing
+
+```javascript
+// Use isDirty() to avoid unnecessary publish attempts
+function publishIfDirty() {
+    var version = Table_1.getPlanning().getPublicVersion("Forecast");
+
+    if (!version.isDirty()) {
+        Application.showMessage("No changes to publish");
+        return;
+    }
+
+    Application.showBusyIndicator();
+    var success = version.publish();
+    Application.hideBusyIndicator();
+
+    if (success) {
+        Application.showMessage("Published successfully");
+    } else {
+        Application.showMessage("Publish failed");
+    }
+}
+```
+
+### Copy Version with Options
+
+```javascript
+// Create new version from existing
+function copyVersionAsNewBudget(sourceId, targetId) {
+    var planning = Table_1.getPlanning();
+    var source = planning.getPublicVersion(sourceId);
+
+    if (!source) {
+        Application.showMessage("Source version not found");
+        return;
+    }
+
+    Application.showBusyIndicator();
+
+    var success = source.copy(
+        targetId,
+        PlanningCopyOptions.AllData,
+        PlanningCategory.Budget
+    );
+
+    Application.hideBusyIndicator();
+
+    if (success) {
+        Application.showMessage("Budget " + targetId + " created");
+        Application.refreshData();
+    }
 }
 ```
 
@@ -708,6 +783,144 @@ function debouncedSearch(searchTerm) {
     // Delay execution
     // Note: SAC doesn't have setTimeout, use onTimeout event instead
     performSearch(searchTerm);
+}
+```
+
+---
+
+## Data Locking Patterns
+
+### Check Lock State Before Editing
+
+```javascript
+// Verify cell can be edited before allowing user input
+function canEditCell(selection) {
+    var dataLocking = Table_1.getPlanning().getDataLocking();
+
+    if (!dataLocking) {
+        return true;  // Data locking not enabled, allow edit
+    }
+
+    var lockState = dataLocking.getState(selection);
+
+    switch (lockState) {
+        case DataLockingState.Open:
+            return true;
+        case DataLockingState.Restricted:
+            Application.showMessage("Only data owner can edit this cell");
+            return false;
+        case DataLockingState.Locked:
+            Application.showMessage("This data is locked and cannot be edited");
+            return false;
+        case DataLockingState.Mixed:
+            Application.showMessage("Selection contains mixed lock states");
+            return false;
+        default:
+            console.log("Unknown lock state");
+            return false;
+    }
+}
+```
+
+### Set Lock State on Public Version
+
+```javascript
+// Lock data after approval
+function lockApprovedData() {
+    var selection = Table_1.getSelections()[0];
+    var dataLocking = Table_1.getPlanning().getDataLocking();
+
+    if (!dataLocking) {
+        Application.showMessage("Data locking not enabled on this model");
+        return;
+    }
+
+    // Note: Can only set lock state on public versions
+    var success = dataLocking.setState(selection, DataLockingState.Locked);
+
+    if (success) {
+        Application.showMessage("Data locked successfully");
+    } else {
+        Application.showMessage("Failed to lock data - ensure you're on a public version");
+    }
+}
+```
+
+---
+
+## Members on the Fly Patterns
+
+### Create New Dimension Member
+
+```javascript
+// Dynamically add new cost center
+function createCostCenter(id, description, region) {
+    Application.showBusyIndicator();
+
+    try {
+        PlanningModel_1.createMembers("CostCenter", {
+            id: id,
+            description: description,
+            properties: {
+                "CUSTOM_Region": region,
+                "CUSTOM_Status": "Active"
+            }
+        });
+
+        // IMPORTANT: Refresh to see new member
+        Application.refreshData();
+
+        Application.showMessage("Cost center created: " + id);
+    } catch (e) {
+        Application.showMessage("Error: " + e.message);
+    } finally {
+        Application.hideBusyIndicator();
+    }
+}
+```
+
+### Update Member with Data Locking Owner
+
+```javascript
+// Assign data locking ownership
+function assignDataOwner(dimensionId, memberId, userId) {
+    PlanningModel_1.updateMembers(dimensionId, {
+        id: memberId,
+        dataLockingOwners: [{
+            id: userId,
+            type: UserType.User
+        }]
+    });
+
+    Application.refreshData();
+    Application.showMessage("Data owner assigned");
+}
+```
+
+### Get Members with Pagination
+
+```javascript
+// Load members in pages for large dimensions
+function loadMembersInPages(dimensionId, pageSize) {
+    var allMembers = [];
+    var offset = 0;
+    var hasMore = true;
+
+    while (hasMore) {
+        var page = PlanningModel_1.getMembers(dimensionId, {
+            offset: offset.toString(),
+            limit: pageSize.toString()
+        });
+
+        if (page.length > 0) {
+            allMembers = allMembers.concat(page);
+            offset += pageSize;
+        } else {
+            hasMore = false;
+        }
+    }
+
+    return allMembers;
 }
 ```
 

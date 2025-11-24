@@ -175,6 +175,21 @@
 |---|--------|-----|--------------|----------------------|
 | 1 | Analytics Designer API Reference (2025.23) | https://help.sap.com/doc/958d4c11261f42e992e8d01a4c0dde25/2025.23/en-US/index.html | Full API Documentation | IMPLEMENTED |
 | 2 | Denis Reis Blog | https://www.denisreis.com/sap-analytics-cloud-javascript-api-code-snippets/ | JavaScript Code Snippets | IMPLEMENTED |
+| 3 | Planning.pdf (Analytics Designer Planning) | Local: /DOCS/Planning.pdf | Planning Scripting Documentation | IMPLEMENTED |
+
+**Planning.pdf Content Extracted**:
+- Basic Planning Concepts in Analytics Designer
+- getPlanning() API usage
+- setEnabled()/isEnabled() for runtime control
+- setUserInput() with value formatting and scaling
+- submitData() for data persistence
+- Planning Versions (Private/Public) API
+- Version Management (publish, revert, copy, publishAs)
+- PlanningCopyOptions and PlanningCategory enumerations
+- Data Locking API (getDataLocking, getState, setState)
+- DataLockingState enumeration
+- Planning Events (BpcPlanningSequence, DataActionTrigger onBeforeExecute)
+- Members on the Fly (createMembers, updateMembers, getMembers, getMember)
 
 ---
 
@@ -184,9 +199,9 @@
 |----------|-------|--------|
 | Total URLs Provided | 62 | - |
 | SAP Help Portal Pages (Dynamic) | 58 | DYNAMIC_RENDER |
-| Successfully Extracted | 2 | ACCESSIBLE |
+| Successfully Extracted | 3 | ACCESSIBLE |
 | Added as Reference Links | 62 | REFERENCE_ONLY |
-| Implemented in Skill | 2 | IMPLEMENTED |
+| Implemented in Skill | 3 | IMPLEMENTED |
 
 ---
 
@@ -225,6 +240,7 @@ The **Analytics Designer API Reference Guide** uses a different rendering approa
 | `PROGRESS_TRACKING.md` | Documentation Links for Future Updates | 15+ |
 | `DOCUMENTATION_TRACKING.md` | This file | 62 |
 | `references/api-reference.md` | Documentation Links | 3 |
+| `references/analytics-designer-planning.md` | Documentation Links | 3 |
 | `references/data-actions.md` | Documentation Links | 4 |
 | `references/planning-workflows.md` | Documentation Links | 4 |
 | `references/version-management.md` | Documentation Links | 4 |
@@ -232,5 +248,5 @@ The **Analytics Designer API Reference Guide** uses a different rendering approa
 
 ---
 
-**Last Updated**: 2025-11-22
+**Last Updated**: 2025-11-23
 **Next Review**: When new SAC version is released

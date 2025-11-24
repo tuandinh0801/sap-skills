@@ -170,15 +170,25 @@ Access planning functionality on tables via `getPlanning()`.
 | Method | Description | Return Type |
 |--------|-------------|-------------|
 | `isEnabled()` | Check if planning enabled | boolean |
-| `setEnabled(enabled)` | Enable/disable planning | void |
+| `setEnabled(enabled)` | Enable/disable planning at runtime | void |
 | `getPublicVersions()` | Get all public versions | PlanningPublicVersion[] |
 | `getPublicVersion(versionId)` | Get specific public version | PlanningPublicVersion |
 | `getPrivateVersion()` | Get current private version | PlanningPrivateVersion |
 | `getPrivateVersions()` | Get all user's private versions | PlanningPrivateVersion[] |
 | `getPlanningAreaInfo()` | Get planning area information | PlanningAreaInfo |
-| `setUserInput(selection, value)` | Set cell value | void |
-| `submitData()` | Submit pending changes | void |
+| `setUserInput(selection, value)` | Set cell value (max 17 chars, use "*" prefix for scaling) | boolean |
+| `submitData()` | Submit pending changes | boolean |
 | `getDataLocking()` | Get data locking object | DataLocking |
+
+### setUserInput Value Formatting
+
+| Format | Example | Description |
+|--------|---------|-------------|
+| Raw value | `"1234.567"` | Direct value using user formatting |
+| Scale factor | `"*0.5"` | Multiply existing value by 0.5 |
+| Scale factor | `"*2"` | Double the existing value |
+
+**Constraints**: Max 17 characters; scaled values max 7 digits.
 
 ### PlanningPublicVersion Object
 
@@ -186,10 +196,14 @@ Access planning functionality on tables via `getPlanning()`.
 |----------------|-------------|
 | `id` | Version identifier |
 | `description` | Version description |
+| `getId()` | Get internal ID (for getData() calls) |
+| `getDisplayId()` | Get display ID (for UI dropdowns/texts) |
 | `isDirty()` | Check for unsaved changes |
 | `startEditMode()` | Start editing (creates private copy) |
-| `revert()` | Revert unpublished changes |
-| `publish()` | Publish changes to public |
+| `revert()` | Revert unpublished changes (returns boolean) |
+| `publish()` | Publish changes to public (returns boolean) |
+| `deleteVersion()` | Delete version (returns boolean, all except 'Actual') |
+| `copy(name, option, category?)` | Create private copy of version |
 
 ### PlanningPrivateVersion Object
 
@@ -197,27 +211,66 @@ Access planning functionality on tables via `getPlanning()`.
 |----------------|-------------|
 | `id` | Version identifier |
 | `description` | Version description |
+| `getId()` | Get internal ID |
+| `getDisplayId()` | Get display ID |
+| `getOwnerID()` | Get user ID of version creator |
 | `isDirty()` | Check for unsaved changes |
-| `publish()` | Publish to source public version |
-| `publishAs(newId, newDesc)` | Publish as new public version |
-| `revert()` | Discard private version |
+| `publish()` | Publish to source public version (returns boolean) |
+| `publishAs(newName, category)` | Publish as new public version (returns boolean) |
+| `revert()` | Discard private version (returns boolean) |
+
+### Version Copy Method
+
+```javascript
+copy(newVersionName: string, planningCopyOption: PlanningCopyOption,
+     versionCategory?: PlanningCategory): boolean
+```
+
+### PlanningCopyOptions Enumeration
+
+| Value | Description |
+|-------|-------------|
+| `PlanningCopyOptions.NoData` | Create new empty version |
+| `PlanningCopyOptions.AllData` | Copy all data from source |
+| `PlanningCopyOptions.PlanningArea` | Copy only planning area data |
+
+### PlanningCategory Enumeration
+
+| Value | Description |
+|-------|-------------|
+| `PlanningCategory.Actual` | Historical/actual data (auto-created) |
+| `PlanningCategory.Planning` | General planning version |
+| `PlanningCategory.Budget` | Budget version |
+| `PlanningCategory.Forecast` | Forecast version |
+| `PlanningCategory.RollingForecast` | Rolling forecast version |
 
 ### DataLocking Object
 
 | Method | Description |
 |--------|-------------|
-| `getState(selection)` | Get lock state for cells |
-| `setState(selection, state)` | Set lock state (owner only) |
+| `getState(selection)` | Get lock state for cells (returns DataLockingState or undefined) |
+| `setState(selection, state)` | Set lock state on public versions only (returns boolean) |
 | `getOwners(selection)` | Get lock owners |
+
+**getState() Returns undefined when**:
+- Selection is invalid
+- Cell referenced by selection isn't found
+- Cell is in unknown state
+- Cell was created using "Add Calculation" at runtime
+
+**setState() Restrictions**:
+- Cannot set on private versions
+- Cannot set `DataLockingState.Mixed`
+- Multiple selections: applies to first selection only
 
 ### DataLockingState Enumeration
 
 | Value | Description |
 |-------|-------------|
-| `Open` | Data can be edited by anyone |
-| `Restricted` | Only owner can edit |
-| `Locked` | No edits allowed |
-| `Mixed` | Mixed states in selection |
+| `DataLockingState.Open` | Data can be edited by anyone |
+| `DataLockingState.Restricted` | Only owner can edit |
+| `DataLockingState.Locked` | No edits allowed |
+| `DataLockingState.Mixed` | Mixed states in selection (read-only, cannot set) |
 
 ### Example: Version Management
 
@@ -294,6 +347,44 @@ Access planning model for master data operations.
 }
 ```
 
+### getMembers() Options
+
+```javascript
+var members = PlanningModel_1.getMembers("LOCATION", {
+    offset: "4",  // 0-indexed (4 = 5th member)
+    limit: "8"    // Return 8 members
+});
+```
+
+### Important Notes for Members on the Fly
+
+**Dimension Type Restriction**: Members can only be added to dimensions of type **"Generic"**. NOT supported for:
+- Account
+- Version
+- Time
+- Organization
+
+**Refresh Required**: After creating/updating/deleting members, call refresh for changes to appear in widgets:
+
+```javascript
+DataSource.refreshData();
+// or
+Application.refreshData();
+```
+
+**Large Models**: After adding members to very large models (millions of members), repeat refresh after a short delay as operations run asynchronously.
+
+**Custom Property Naming**: Use a prefix for custom properties to avoid conflicts (e.g., `"CUSTOM_Region"`).
+
+**Property Access Rights**:
+
+| Property | Required Right/Access |
+|----------|----------------------|
+| `dataLockingOwner` | Data Locking Ownership |
+| `responsible` | Responsible |
+| `readers` | Data Access Control |
+| `writers` | Data Access Control |
+
 ### Example: Master Data Management
 
 ```javascript
@@ -308,14 +399,26 @@ PlanningModel_1.createMembers("CostCenter", [{
     description: "New Cost Center",
     parentId: "CC_PARENT",
     properties: {
-        "Status": "Active",
-        "Region": "EMEA"
+        "CUSTOM_Status": "Active",
+        "CUSTOM_Region": "EMEA"
     },
     responsible: ["USER1"],
     writers: ["USER1", "USER2"],
-    dataLockingOwners: ["USER1"]
+    dataLockingOwners: [{
+        id: "USER1",
+        type: UserType.User
+    }]
 }]);
+
+// Refresh to see new member
+Application.refreshData();
 ```
+
+### UserType Enumeration
+
+| Value | Description |
+|-------|-------------|
+| `UserType.User` | Individual user |
 
 ---
 
@@ -340,6 +443,27 @@ Execute data actions programmatically.
 |-------|-------------|
 | `onExecutionStatusUpdate` | Status changed during execution |
 | `onExecutionComplete` | Execution finished |
+
+### DataActionTrigger Widget Events
+
+| Event | Description |
+|-------|-------------|
+| `onBeforeExecute` | Called when user clicks trigger. Return `true` to execute, `false` to cancel |
+
+```javascript
+// DataActionTrigger onBeforeExecute event
+onBeforeExecute(): boolean {
+    // Check data locks before execution
+    var selection = Table_1.getSelections()[0];
+    var lockState = Table_1.getPlanning().getDataLocking().getState(selection);
+
+    if (lockState === DataLockingState.Locked) {
+        Application.showMessage("Cannot execute - data is locked");
+        return false;  // Cancel execution
+    }
+    return true;  // Allow execution
+}
+```
 
 ---
 
@@ -436,6 +560,24 @@ Integrate with SAP BPC planning sequences.
 | `getBpcPlanningSequenceDataSource()` | Get associated data source |
 | `setParameterValue(paramId, value)` | Set parameter value |
 | `getParameterValue(paramId)` | Get parameter value |
+
+### BpcPlanningSequence Events
+
+| Event | Description |
+|-------|-------------|
+| `onBeforeExecute` | Called when user clicks trigger. Return `true` to execute, `false` to cancel |
+
+```javascript
+// onBeforeExecute event handler
+onBeforeExecute(): boolean {
+    // Validate before execution
+    if (!isUserAuthorized()) {
+        Application.showMessage("Not authorized");
+        return false;  // Cancel execution
+    }
+    return true;  // Allow execution
+}
+```
 
 ---
 

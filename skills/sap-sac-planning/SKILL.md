@@ -4,12 +4,12 @@ description: |
   This skill should be used when developing SAP Analytics Cloud (SAC) planning applications, including building planning-enabled stories, analytics designer applications with planning functionality, data actions, multi actions, version management, and planning workflows. Use when creating planning models, implementing data entry forms, configuring spreading/distribution/allocation, setting up data locking, building calendar-based planning processes with approval workflows, writing JavaScript scripts for planning automation, using the getPlanning() API, PlanningModel API, or DataSource API for planning scenarios, troubleshooting planning performance issues, or integrating predictive forecasting into planning workflows.
 license: GPL-3.0
 metadata:
-  version: 1.2.0
-  last_updated: 2025-11-22
+  version: 1.3.0
+  last_updated: 2025-11-23
   sac_version: "2025.23"
   documentation_source: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/18850a0e13944f53aa8a8b7c094ea29e
   api_reference: https://help.sap.com/doc/958d4c11261f42e992e8d01a4c0dde25/2025.23/en-US/index.html
-  reference_files: 6
+  reference_files: 7
   status: production
 ---
 
@@ -445,6 +445,45 @@ if (lockState === DataLockingState.Locked) {
 
 ---
 
+## Members on the Fly
+
+Create, update, and delete dimension members dynamically at runtime.
+
+### Supported Operations
+
+```javascript
+// Create new member
+PlanningModel_1.createMembers("CostCenter", {
+    id: "CC_NEW",
+    description: "New Cost Center"
+});
+
+// Update existing member
+PlanningModel_1.updateMembers("CostCenter", {
+    id: "CC_NEW",
+    description: "Updated Description"
+});
+
+// Get single member
+var member = PlanningModel_1.getMember("CostCenter", "CC_NEW");
+
+// Get members with pagination
+var members = PlanningModel_1.getMembers("CostCenter", {
+    offset: "0",
+    limit: "100"
+});
+```
+
+### Important Restrictions
+
+- **Dimension Type**: Only "Generic" dimensions supported (NOT Account, Version, Time, Organization)
+- **Refresh Required**: Call `Application.refreshData()` after member changes
+- **Custom Properties**: Use prefixes to avoid naming conflicts (e.g., "CUSTOM_Region")
+
+**Reference**: See `references/analytics-designer-planning.md` for complete API documentation.
+
+---
+
 ## Common JavaScript Patterns
 
 ### Finding Active Version by Attribute
@@ -632,14 +671,15 @@ console.log("Lock state: " + lockState);
 
 ## Bundled Reference Files
 
-This skill includes comprehensive reference documentation (6 files):
+This skill includes comprehensive reference documentation (7 files):
 
 1. **references/api-reference.md**: Complete Analytics Designer API for planning
-2. **references/data-actions.md**: Data Actions, Multi Actions, parameters, steps
-3. **references/planning-workflows.md**: Calendar, tasks, approvals, data locking
-4. **references/version-management.md**: Versions, publishing, sharing, edit mode
-5. **references/javascript-patterns.md**: Code snippets, patterns, best practices
-6. **references/s4hana-acdocp-export.md**: S/4HANA integration, ACDOCP export, OData setup
+2. **references/analytics-designer-planning.md**: Planning scripting, setUserInput, versions, data locking, members on the fly
+3. **references/data-actions.md**: Data Actions, Multi Actions, parameters, steps
+4. **references/planning-workflows.md**: Calendar, tasks, approvals, data locking
+5. **references/version-management.md**: Versions, publishing, sharing, edit mode
+6. **references/javascript-patterns.md**: Code snippets, patterns, best practices
+7. **references/s4hana-acdocp-export.md**: S/4HANA integration, ACDOCP export, OData setup
 
 ---
 
