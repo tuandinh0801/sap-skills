@@ -1,8 +1,8 @@
 # SAP BTP Cloud Logging Skill
 
-**Version:** 1.0.0
-**Last Updated:** 2025-11-22
-**License:** MIT
+**Version:** 1.1.0
+**Last Verified:** 2025-11-27
+**License:** GPL-3.0
 
 ---
 

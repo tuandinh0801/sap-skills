@@ -5,6 +5,42 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [SAML 2.0 Configuration Steps](#saml-20-configuration-steps)
+  - [Step 1: Gather Identity Provider Information](#step-1-gather-identity-provider-information)
+  - [Step 2: Create SAML 2.0 Application](#step-2-create-saml-20-application)
+  - [Step 3: Configure Application Attributes](#step-3-configure-application-attributes)
+    - [3.1 Self-Defined Attribute](#31-self-defined-attribute)
+    - [3.2 Name ID Format](#32-name-id-format)
+    - [3.3 Manual SAML 2.0 Configuration](#33-manual-saml-20-configuration)
+  - [Step 4: Configure SAML 2.0 (Choose One Option)](#step-4-configure-saml-20-choose-one-option)
+    - [OPTION 1: Request Signing (Recommended)](#option-1-request-signing-recommended)
+    - [OPTION 2: Manual Endpoint Configuration](#option-2-manual-endpoint-configuration)
+  - [Step 5: Create Access Group](#step-5-create-access-group)
+  - [Step 6: Configure Cloud Logging Instance](#step-6-configure-cloud-logging-instance)
+- [SAML Parameter Reference (Official Nested Structure)](#saml-parameter-reference-official-nested-structure)
+  - [Required Parameters (when `enabled: true`)](#required-parameters-when-enabled-true)
+  - [Optional Parameters (Request Signing)](#optional-parameters-request-signing)
+- [Role Mapping](#role-mapping)
+  - [Default Role Mapping](#default-role-mapping)
+  - [Custom Role Mapping](#custom-role-mapping)
+- [Troubleshooting](#troubleshooting)
+  - [Login Fails with "Invalid SAML Response"](#login-fails-with-invalid-saml-response)
+  - [User Not Authorized](#user-not-authorized)
+  - [IdP Metadata URL Not Accessible](#idp-metadata-url-not-accessible)
+  - [Request Signing Errors](#request-signing-errors)
+  - [IdP-Initiated SSO Not Working](#idp-initiated-sso-not-working)
+- [Security Best Practices](#security-best-practices)
+- [Complete Configuration Example](#complete-configuration-example)
+  - [Identity Authentication Application Settings](#identity-authentication-application-settings)
+  - [Cloud Logging Instance Configuration](#cloud-logging-instance-configuration)
+- [Documentation Links](#documentation-links)
+
+---
+
 ## Overview
 
 SAP Cloud Logging strongly recommends integrating with SAP Cloud Identity Services using SAML 2.0 protocol for secure dashboard access. This enables centralized user management and group-based access control.

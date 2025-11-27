@@ -5,6 +5,43 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Index Patterns](#index-patterns)
+- [Enable OTLP Endpoint](#enable-otlp-endpoint)
+  - [Step 1: Update Instance Configuration](#step-1-update-instance-configuration)
+  - [Step 2: Create New Service Binding](#step-2-create-new-service-binding)
+- [Service Key Credentials](#service-key-credentials)
+- [Certificate Configuration](#certificate-configuration)
+  - [Validity Period](#validity-period)
+  - [Configure Custom Validity](#configure-custom-validity)
+  - [Certificate Rotation](#certificate-rotation)
+- [Manual Configuration](#manual-configuration)
+  - [Generic OpenTelemetry SDK Setup](#generic-opentelemetry-sdk-setup)
+  - [OpenTelemetry Collector Configuration](#opentelemetry-collector-configuration)
+- [Java Automation](#java-automation)
+  - [Maven Dependency](#maven-dependency)
+  - [How It Works](#how-it-works)
+  - [Spring Boot Integration](#spring-boot-integration)
+- [Node.js Automation](#nodejs-automation)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Features](#features)
+- [User-Provided Service for OTLP](#user-provided-service-for-otlp)
+- [Attribute Name Mapping](#attribute-name-mapping)
+- [Kubernetes/Kyma Setup](#kuberneteskyma-setup)
+  - [Deploy Credentials as Secret](#deploy-credentials-as-secret)
+  - [Application Deployment](#application-deployment)
+- [Troubleshooting](#troubleshooting)
+  - [Connection Refused](#connection-refused)
+  - [Certificate Errors](#certificate-errors)
+  - [Data Not Appearing](#data-not-appearing)
+  - [Protocol Mismatch](#protocol-mismatch)
+- [Documentation Links](#documentation-links)
+
+---
+
 ## Overview
 
 SAP Cloud Logging accepts OpenTelemetry data through OTLP using a unified endpoint for logs, metrics, and traces. **Only gRPC protocol is supported** - http/protobuf and http/json must be converted using OpenTelemetry Collector.

@@ -10,13 +10,48 @@ description: |
   ingestion methods (Cloud Foundry, Kyma, OpenTelemetry, JSON API), and security best practices.
 license: GPL-3.0
 metadata:
-  version: "1.0.0"
-  last_updated: "2025-11-22"
+  version: "1.1.0"
+  last_verified: "2025-11-27"
   source_documentation: "https://github.com/SAP-docs/btp-cloud-logging"
   sap_help_portal: "https://help.sap.com/docs/cloud-logging"
 ---
 
 # SAP BTP Cloud Logging Skill
+
+## Table of Contents
+
+- [Service Overview](#service-overview)
+- [Service Plans](#service-plans)
+- [Quick Start](#quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Instance Creation Options](#instance-creation-options)
+- [Configuration Parameters](#configuration-parameters)
+  - [Full Configuration Example](#full-configuration-example)
+- [Data Ingestion Methods](#data-ingestion-methods)
+  - [1. Cloud Foundry Runtime](#1-cloud-foundry-runtime)
+  - [2. Kyma Runtime](#2-kyma-runtime)
+  - [3. OpenTelemetry API (OTLP)](#3-opentelemetry-api-otlp)
+  - [4. JSON API](#4-json-api)
+- [Certificate Management](#certificate-management)
+  - [Certificate Validity](#certificate-validity)
+  - [Root CA Rotation (3-Step Process)](#root-ca-rotation-3-step-process)
+- [OpenSearch Dashboards](#opensearch-dashboards)
+  - [Access](#access)
+  - [Pre-built Dashboards](#pre-built-dashboards)
+  - [Custom Dashboards & Alerting](#custom-dashboards--alerting)
+  - [Index Patterns Summary](#index-patterns-summary)
+- [Security Best Practices](#security-best-practices)
+  - [Security Recommendations](#security-recommendations)
+  - [SAML Authentication Setup](#saml-authentication-setup)
+- [Backup & Recovery](#backup--recovery)
+  - [Automatic Backups](#automatic-backups)
+  - [Restoration Process](#restoration-process)
+- [Common Issues & Troubleshooting](#common-issues--troubleshooting)
+- [Reference Files](#reference-files)
+- [Documentation Links](#documentation-links)
+  - [Official Sources](#official-sources)
+  - [Related Documentation](#related-documentation)
+- [Data Protection Notice](#data-protection-notice)
 
 ## Service Overview
 
@@ -350,13 +385,19 @@ Create SAP support ticket with component `BC-CP-CLS` including:
 ## Reference Files
 
 For detailed information, see bundled reference files:
-- `references/service-plans.md` - Service plans comparison and capacity planning
-- `references/configuration-parameters.md` - Complete parameter reference
-- `references/cf-ingestion.md` - Cloud Foundry ingestion details
-- `references/kyma-ingestion.md` - Kyma runtime integration
-- `references/opentelemetry-ingestion.md` - OTLP setup with Java/Node.js
-- `references/json-api-ingestion.md` - JSON API and Fluent Bit config
-- `references/saml-authentication.md` - SAML setup with IAS
+
+### Configuration & Setup
+- `references/service-plans.md` (183 lines) - Service plans comparison and capacity planning
+- `references/configuration-parameters.md` (270 lines) - Complete parameter reference with examples
+
+### Ingestion Methods
+- `references/cf-ingestion.md` (211 lines) - Cloud Foundry ingestion details
+- `references/kyma-ingestion.md` (293 lines) - Kyma runtime integration
+- `references/opentelemetry-ingestion.md` (363 lines) - OTLP setup with Java/Node.js automation
+- `references/json-api-ingestion.md` (435 lines) - JSON API and Fluent Bit configuration
+
+### Security & Authentication
+- `references/saml-authentication.md` (329 lines) - SAML setup with Identity Authentication Service
 
 ---
 

@@ -5,6 +5,39 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Index Pattern](#index-pattern)
+- [Endpoint Details](#endpoint-details)
+  - [Credentials from Service Key](#credentials-from-service-key)
+  - [Certificate Validity](#certificate-validity)
+- [API Specification](#api-specification)
+  - [Single Document Ingestion](#single-document-ingestion)
+  - [Batch Document Ingestion](#batch-document-ingestion)
+  - [Compressed Payload](#compressed-payload)
+- [Field Specifications](#field-specifications)
+  - [Required Fields](#required-fields)
+  - [Date Format Options](#date-format-options)
+  - [Additional Fields](#additional-fields)
+- [Response Codes](#response-codes)
+- [Fluent Bit Configuration](#fluent-bit-configuration)
+  - [Basic Configuration](#basic-configuration)
+  - [Kubernetes DaemonSet](#kubernetes-daemonset)
+  - [ConfigMap for Fluent Bit](#configmap-for-fluent-bit)
+- [Logstash Configuration](#logstash-configuration)
+- [Application Integration Examples](#application-integration-examples)
+  - [Python](#python)
+  - [Node.js](#nodejs)
+- [Troubleshooting](#troubleshooting)
+  - [HTTP 400 Bad Request](#http-400-bad-request)
+  - [HTTP 401 Unauthorized](#http-401-unauthorized)
+  - [Data Not Appearing in Dashboards](#data-not-appearing-in-dashboards)
+  - [Performance Issues](#performance-issues)
+- [Documentation Links](#documentation-links)
+
+---
+
 ## Overview
 
 SAP Cloud Logging supports document ingestion via JSON API endpoint as an alternative to OpenTelemetry format. The service uses mTLS authentication for secure data transmission.
