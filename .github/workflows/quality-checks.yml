@@ -137,9 +137,9 @@ jobs:
                 # Extract and print all markdown links
                 while (match(line, /\[[^]]+\]\([^)#]+\)/)) {
                   link_match = substr(line, RSTART, RLENGTH)
-                  # Extract the URL part from [text](url)
-                  if (match(link_match, /\([^)#]+\)/)) {
-                    url = substr(link_match, RSTART+1, RLENGTH-2)
+                  # Extract the URL part from [text](url) - match ](url) to avoid parentheses in link text
+                  if (match(link_match, /\]\([^)#]+\)/)) {
+                    url = substr(link_match, RSTART+2, RLENGTH-3)
                     # Skip external links
                     if (url !~ /^https?:\/\//) {
                       print url
