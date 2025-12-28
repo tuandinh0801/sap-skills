@@ -165,31 +165,28 @@ sap-skills/
 
 Want to contribute a new SAP skill? Follow the quick workflow:
 
-1. **Read the guides**:
-   - [START_HERE.md](START_HERE.md) - First-time contributor guide
-   - [QUICK_WORKFLOW.md](QUICK_WORKFLOW.md) - 5-minute skill creation
-   - [ONE_PAGE_CHECKLIST.md](ONE_PAGE_CHECKLIST.md) - Quality verification
+1. **Use plugin-dev for basics** (FIRST):
+   - Run: `/use plugin-dev:skill-development`
+   - Covers: YAML frontmatter, plugin structure, directory layout
+   - Official Anthropic standards
 
-2. **Create the plugin structure**:
-   ```bash
-   mkdir -p plugins/your-skill/skills/your-skill/
-   ```
+2. **Add SAP-specific elements**:
+   - Read [Contributor Guide](docs/contributor-guide/) for:
+     - SAP SDK version tracking
+     - Production testing requirements
+     - Error catalog patterns
+     - Marketplace cross-references
 
-3. **Add skill content**:
-   - `SKILL.md` - Main content with YAML frontmatter
-   - `README.md` - Keywords for discovery
-   - `references/` - Supporting documentation
-
-4. **Generate plugin manifests**:
+3. **Generate plugin manifests**:
    ```bash
    ./scripts/sync-plugins.sh
    ```
 
-5. **Test and verify**:
+4. **Test and verify**:
    - Use the `skill-review` skill for comprehensive quality audit
-   - Check [ONE_PAGE_CHECKLIST.md](ONE_PAGE_CHECKLIST.md)
+   - Check [Workflow Checklist](docs/contributor-guide/workflow-checklist.md)
 
-6. **Submit**:
+5. **Submit**:
    ```bash
    git add plugins/your-skill .claude-plugin/marketplace.json
    git commit -m "Add your-skill for [use case]"
@@ -199,13 +196,17 @@ Want to contribute a new SAP skill? Follow the quick workflow:
 
 ## Documentation
 
+**For General Plugin Development**: Use official **plugin-dev skills** FIRST
+Run: `/use plugin-dev:skill-development`, `plugin-dev:plugin-structure`, etc.
+
+**SAP-Specific Documentation**:
+
 | Resource | Purpose |
 |----------|---------|
-| [START_HERE.md](START_HERE.md) | Entry point for new contributors |
-| [CLAUDE.md](CLAUDE.md) | Complete project context and guidelines |
-| [QUICK_WORKFLOW.md](QUICK_WORKFLOW.md) | Fast skill creation workflow |
-| [ONE_PAGE_CHECKLIST.md](ONE_PAGE_CHECKLIST.md) | Quality verification checklist |
-| [MARKETPLACE.md](MARKETPLACE.md) | Marketplace integration guide |
+| [Getting Started](docs/getting-started/) | Installation and quick reference |
+| [Contributor Guide](docs/contributor-guide/) | Comprehensive development guide |
+| [Workflow Checklist](docs/contributor-guide/workflow-checklist.md) | Quality verification checklist |
+| [CLAUDE.md](CLAUDE.md) | Project context and critical directives |
 | [CHANGELOG.md](CHANGELOG.md) | Version history and changes |
 
 ---
@@ -234,7 +235,7 @@ This repository is open source under the **GPL-3.0 License**. Contributions are 
 
 **Ways to contribute**:
 - Report issues or suggest features via [GitHub Issues](https://github.com/secondsky/sap-skills/issues)
-- Submit new skills following [QUICK_WORKFLOW.md](QUICK_WORKFLOW.md)
+- Submit new skills (use plugin-dev + [Contributor Guide](docs/contributor-guide/))
 - Improve existing skills with updated docs or references
 - Help maintain package versions and dependencies
 

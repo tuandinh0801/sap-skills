@@ -113,7 +113,7 @@ ls ~/.claude/skills/skill-review
 13. **Fix Implementation** - Auto-fix or ask user
 14. **Post-Fix Verification** - Test, commit
 
-**Detailed guide**: `planning/SKILL_REVIEW_PROCESS.md`
+**Detailed guide**: `docs/contributor-guide/quality-assurance.md`
 
 ---
 
@@ -269,7 +269,7 @@ Claude recognizes these phrases and may suggest review:
 
 ## Resources
 
-**Full Process Guide**: `planning/SKILL_REVIEW_PROCESS.md` (~3,500 words)
+**Full Process Guide**: `docs/contributor-guide/quality-assurance.md` (~3,500 words)
 
 **Slash Command**: `.claude/commands/review-skill.md`
 

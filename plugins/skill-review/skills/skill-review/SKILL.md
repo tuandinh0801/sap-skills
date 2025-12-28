@@ -372,7 +372,7 @@ If breaking changes:
 
 This skill references:
 
-1. **`planning/SKILL_REVIEW_PROCESS.md`** - Complete 14-phase manual guide
+1. **`docs/contributor-guide/quality-assurance.md`** - Complete 14-phase manual guide
 2. **`scripts/review-skill.sh`** - Automated validation script
 3. **`.claude/commands/review-skill.md`** - Slash command definition
 
@@ -512,9 +512,11 @@ This skill references:
 
 ## Additional Resources
 
-- **Full Process Guide**: `planning/SKILL_REVIEW_PROCESS.md`
+- **Full Process Guide**: `docs/contributor-guide/quality-assurance.md`
 - **Repository**: [https://github.com/secondsky/sap-skills](https://github.com/secondsky/sap-skills)
 - **Example Audit**: See process guide Appendix B (better-auth v2.0.0)
+- **Plugin Development**: Use official **plugin-dev skills** for general plugin development (YAML, structure, hooks, etc.)
+- **SAP-Specific Patterns**: See [Contributor Guide](docs/contributor-guide/) for marketplace infrastructure, SDK versioning, and quality standards
 
 ---
 
