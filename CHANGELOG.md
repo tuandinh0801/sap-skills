@@ -5,6 +5,23 @@ All notable changes to SAP Skills will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.1] - 2026-02-06
+
+### Changed
+- Updated author field from "SAP Skills Maintainers" to "E.J." across all 64 plugin.json files
+- Added Claude Code-specific clarification to README.md explaining that skills follow Claude Code plugin patterns
+
+### Removed
+- **skill-review plugin** - Automated quality assurance plugin removed (transitioned to manual review process)
+- Reduced total skills: 33 → 32
+- Removed from Tooling & Development category (4 → 3 skills)
+
+### Documentation
+- Updated contributor guide to reflect manual review process
+- Removed skill-review automation references from all documentation
+- Added deprecation notices to quality-assurance.md and skills-review-progress.md
+- Updated workflow-checklist.md with manual quality review guidelines
+
 ## [2.1.0] - 2025-12-27
 
 ### Major Changes
