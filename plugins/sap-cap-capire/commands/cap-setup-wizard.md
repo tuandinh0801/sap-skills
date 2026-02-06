@@ -296,7 +296,7 @@ npm install
 
 ## References
 
-- [CAP Setup Guide](../references/tools-complete.md)
-- [Deployment Configuration](../references/deployment-cf.md)
-- [Package.json Template](../templates/package.json)
-- [MTA Descriptor Template](../templates/mta.yaml)
+- [CAP Setup Guide](../skills/sap-cap-capire/references/tools-complete.md)
+- [Deployment Configuration](../skills/sap-cap-capire/references/deployment-cf.md)
+- [Package.json Template](../skills/sap-cap-capire/templates/package.json)
+- [MTA Descriptor Template](../skills/sap-cap-capire/templates/mta.yaml)

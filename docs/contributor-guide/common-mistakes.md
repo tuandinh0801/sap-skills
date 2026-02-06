@@ -596,9 +596,9 @@ Before committing, verify you DIDN'T make these mistakes:
 
 ## Learn More
 
-- [START_HERE.md](../START_HERE.md) - Workflow overview
-- [ONE_PAGE_CHECKLIST.md](../ONE_PAGE_CHECKLIST.md) - Verification checklist
-- [planning/STANDARDS_COMPARISON.md](STANDARDS_COMPARISON.md) - Official standards
+- [Quick Reference](../getting-started/quick-reference.md) - Workflow overview
+- [Workflow Checklist](workflow-checklist.md) - Verification checklist
+- [Quality Assurance](quality-assurance.md) - Official standards
 - `CLOUDFLARE_SKILLS_AUDIT.md` - Example audit (reference)
 
 ---

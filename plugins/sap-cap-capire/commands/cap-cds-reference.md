@@ -111,6 +111,6 @@ await DELETE.from(Books).where({ ID: bookID });
 ## Complete Reference
 
 For comprehensive documentation, see:
-- [CDL Syntax Reference](../references/cdl-syntax.md)
-- [Annotations Reference](../references/annotations-reference.md)
-- [CQL Queries Reference](../references/cql-queries.md)
+- [CDL Syntax Reference](../skills/sap-cap-capire/references/cdl-syntax.md)
+- [Annotations Reference](../skills/sap-cap-capire/references/annotations-reference.md)
+- [CQL Queries Reference](../skills/sap-cap-capire/references/cql-queries.md)

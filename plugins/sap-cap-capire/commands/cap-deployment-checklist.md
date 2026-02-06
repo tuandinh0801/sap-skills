@@ -131,6 +131,6 @@ cds watch
 
 ## References
 
-- [Deployment Guide](../references/deployment-cf.md)
-- [MTA Template](../templates/mta.yaml)
-- [xs-security.json Template](../templates/xs-security.json)
+- [Deployment Guide](../skills/sap-cap-capire/references/deployment-cf.md)
+- [MTA Template](../skills/sap-cap-capire/templates/mta.yaml)
+- [xs-security.json Template](../skills/sap-cap-capire/templates/xs-security.json)

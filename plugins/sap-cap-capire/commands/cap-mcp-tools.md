@@ -322,5 +322,5 @@ cds-mcp search_docs "how to add columns to a select statement in CAP Node.js" 1
 - **Official GitHub**: https://github.com/cap-js/mcp-server
 - **npm Package**: https://npmjs.com/package/@cap-js/mcp-server
 - **Community Blog**: https://community.sap.com/t5/technology-blog-posts-by-sap/boost-your-cap-development-with-ai-introducing-the-mcp-server-for-cap/ba-p/14202849
-- **MCP Integration Guide**: [../references/mcp-integration.md](../references/mcp-integration.md)
-- **MCP Use Cases**: [../references/mcp-use-cases.md](../references/mcp-use-cases.md)
+- **MCP Integration Guide**: [MCP Integration](../skills/sap-cap-capire/references/mcp-integration.md)
+- **MCP Use Cases**: [MCP Use Cases](../skills/sap-cap-capire/references/mcp-use-cases.md)

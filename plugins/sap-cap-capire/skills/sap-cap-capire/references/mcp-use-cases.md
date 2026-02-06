@@ -403,6 +403,6 @@ To realize these benefits:
 ## References
 
 - [MCP Integration Guide](mcp-integration.md) - Setup and configuration
-- [CAP MCP Tools Command](../commands/cap-mcp-tools.md) - Complete tool reference
+- [CAP MCP Tools Command](../../../commands/cap-mcp-tools.md) - Complete tool reference
 - [Official MCP Server](https://github.com/cap-js/mcp-server) - Source code and updates
 - [SAP Community Blog](https://community.sap.com/t5/technology-blog-posts-by-sap/boost-your-cap-development-with-ai-introducing-the-mcp-server-for-cap/ba-p/14202849) - Announcement and overview

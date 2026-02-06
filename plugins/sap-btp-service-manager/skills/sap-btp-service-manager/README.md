@@ -246,4 +246,4 @@ GPL-3.0
 
 Repository: [https://github.com/secondsky/sap-skills](https://github.com/secondsky/sap-skills)
 
-Follow the skill creation guidelines in [QUICK_WORKFLOW.md](/QUICK_WORKFLOW.md).
+Follow the skill creation guidelines in the [Contributor Guide](https://github.com/secondsky/sap-skills/blob/main/docs/contributor-guide/README.md).

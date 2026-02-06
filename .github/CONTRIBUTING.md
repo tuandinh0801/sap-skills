@@ -4,8 +4,8 @@ Thank you for your interest in contributing to the SAP Skills collection! 🎉
 
 ## Quick Links
 
-- [QUICK_WORKFLOW.md](../QUICK_WORKFLOW.md) - 5-minute skill creation guide
-- [ONE_PAGE_CHECKLIST.md](../ONE_PAGE_CHECKLIST.md) - Quality verification checklist
+- [Quick Reference](../docs/getting-started/quick-reference.md) - 5-minute skill creation guide
+- [Workflow Checklist](../docs/contributor-guide/workflow-checklist.md) - Quality verification checklist
 - [CLAUDE.md](../CLAUDE.md) - Project context and guidelines
 
 ## Ways to Contribute

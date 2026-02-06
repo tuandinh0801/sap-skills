@@ -15,7 +15,7 @@ Run: `/use plugin-dev:skill-development`
 
 ## For SAP-Specific Development
 
-See **[SAP_DEVELOPMENT_GUIDE.md](SAP_DEVELOPMENT_GUIDE.md)** for:
+See the **[Contributor Guide](../contributor-guide/README.md)** for:
 - Marketplace infrastructure (30+ skills)
 - Quality assurance (14-phase review)
 - SAP SDK version management
@@ -24,9 +24,9 @@ See **[SAP_DEVELOPMENT_GUIDE.md](SAP_DEVELOPMENT_GUIDE.md)** for:
 ## Quick Links
 
 - [README.md](README.md) - Overview and skill catalog
-- [CLAUDE.md](CLAUDE.md) - Project context and directives
-- [SAP_DEVELOPMENT_GUIDE.md](SAP_DEVELOPMENT_GUIDE.md) - SAP patterns
-- [ONE_PAGE_CHECKLIST.md](ONE_PAGE_CHECKLIST.md) - Quality checklist
+- [CLAUDE.md](../../CLAUDE.md) - Project context and directives
+- [Contributor Guide](../contributor-guide/README.md) - SAP patterns
+- [Workflow Checklist](../contributor-guide/workflow-checklist.md) - Quality checklist
 
 ---
 
